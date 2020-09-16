@@ -1,0 +1,74 @@
+\documentclass[10pt]{article}
+
+\usepackage{mathtools, amsfonts, bm}
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage[top = 1.0in, left = 1.75in, right = 0.75in, bottom = 0.75in]{geometry}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{tikzsymbols}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[explicit]{titlesec}
+\titleformat{\section}[runin]{\bfseries}{}{0em}{
+    \llap{
+        \smash{
+            \begin{tabularx}{0.85in}{r}
+                #1 
+            \end{tabularx}
+        }
+    }
+}[\leavevmode\hspace*{\dimexpr-\fontdimen2\font-\fontdimen3\font}]
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\usepackage{lipsum}
+
+%' ============================================================================================================================================================
+%' ============================================================================================================================================================
+
+\begin{document}
+
+\newcommand{\mytitle}{Homework 1}
+\newcommand{\myauthor}{Aiden Kenny}
+\newcommand{\myclass}{STAT GR5202: Probability}
+\newcommand{\myschool}{Columbia University}
+\newcommand{\mydate}{September 29, 2020}
+\begin{flushright}
+    \textbf{\mytitle}\\[0.5em]
+    \textsl{\myauthor}\\
+    \textsl{\myclass}\\
+    \textsl{\myschool}\\
+    \textsl{\mydate}
+\end{flushright} \vspace{1em}
+
+%' ============================================================================================================================================================
+\section{Question 1} \noindent
+We will let H denote a heads and T denote a tails.
+\begin{itemize}
+    \item[(a)] The sample space is given by \(\mathcal{S} = \{\mathrm{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT}\}\).
+    \item[(b)] We have
+    \begin{enumerate}
+        \item \(A = \text{at least two heads} = \{\mathrm{HHH, HHT, HTH, THH}\}\).
+        \item \(B = \text{the first two tosses are heads} = \{\mathrm{HHH, HHT}\}\).
+        \item \(C = \text{the last toss is a tail} = \{\mathrm{HHT, HTT, THT, TTT}\}\).
+    \end{enumerate}
+    \item[(c)] We have 
+    \begin{enumerate}
+        \item \(A^c = \{\mathrm{HTT, THT, TTH, TTT}\}\).
+        \item \(A \cap B = \{\mathrm{HHH, HHT}\} = B\) (since \(B \subset A\)).
+        \item \(A \cup C = \{\mathrm{HHH, HHT, HTH, HTT, THH, THT, TTT}\}\).
+    \end{enumerate}
+\end{itemize}
+
+%' ============================================================================================================================================================
+\section{Question 2} \noindent
+
+
+\end{document}
