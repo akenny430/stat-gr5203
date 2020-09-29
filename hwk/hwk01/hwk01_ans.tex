@@ -70,7 +70,7 @@ We will let H denote a heads and T denote a tails.
 %' ============================================================================================================================================================
 \section{Question 2} \noindent
 For each of the scenarios, we are pulling five cards from a well-shuffled deck without replacement. Since the order of the cards does 
-not matter, there are \(\binom{52}{5}\) total possible combinations. 
+not matter, there are \(\binom{52}{5}\) possible combinations. 
 % Also note that we are \textit{excluding} any better hands when counting
 % the probabilities; for example, when finding the probability of a straight flush, we will not consider a royal flush.
 \begin{itemize}
@@ -98,5 +98,34 @@ not matter, there are \(\binom{52}{5}\) total possible combinations.
     and from these there are four possible suites, so there are 44 ways to choose the last card. So there are \(44\binom{13}{2}\binom{4}{2}^2\) plausible 
     hands, and so the probability of getting two pairs is \(44\binom{13}{2}\binom{4}{2}^2 / \binom{52}{5}\).
 \end{itemize}
+
+%' ============================================================================================================================================================
+\section{Question 3} \noindent
+Let \(E\) be the event that the president is a woman, \(F\) be the event that the vice-president is a man, and \(G\) be the event that both leaders are of 
+the same sex. Since we are choosing leaders without replacement and with regard to order, there are \(48\cdot47\) possible leadership arrangements. We are 
+also assuming committee choices are independent. 
+\begin{itemize}
+    \item[(a)] For \(E\) to happen we only care that the president is a woman, the sex of the vice-president is irrelevant. So there are 16 possible choices 
+    for the president, and then any of the 47 remianing members can be chosen. So there are \(16\cdot47\) outcomes in \(E\), and 
+    \(\mathrm{Pr}(E) = \frac{16\cdot47}{48\cdot47} = 1/3\). Similarly, for \(F\) we only care about the gender of the vice president. Here there are two
+    possibilities: a man is chosen as the president or a woman is chosen as the president. For the former, there are \(32\cdot 31\) possibilities, and for the 
+    latter, there are \(16\cdot32\) possibilities. Since the two situations are disjoint, we have \(\mathrm{Pr}(F) = \frac{32\cdot31+16\cdot32}{48\cdot47} 
+    = 2/3\). Finally, there are \(32\cdot31\) combinations of two male leaders and \(16\cdot15\) combinations of female leaders, and since the two 
+    possibilities are disjoint, we have \(\mathrm{Pr}(G) = \frac{32\cdot31+16\cdot15}{48\cdot47} = 77/141\).
+    \item[(b)] \(E\cap F\) is the event that the president is female and the vice president is male. There are \(16\cdot32\) ways this can happen, so 
+    \(\mathrm{Pr}(E\cap F) = \frac{16\cdot32}{48\cdot47} = 32/141\). To find \(\mathrm{Pr}(E\cup F)\) (the probability that the president is female or 
+    the vice-president is a male), we have \[\mathrm{Pr}(E \cup F) - \mathrm{Pr}(E) + \mathrm{Pr}(F) - \mathrm{Pr}(E\cap F) = 1/3 + 2/3 - 32/141 = 109/141.\]
+    Finally, since the event \(E\cap F\) requires the leaders to be of opposite sex, we know that \((e\cap F)\cap G = \emptyset\), which means 
+    \(\mathrm{Pr}(E \cap F \cap G) = 0\). 
+    \item[(c)] There are two possibilities when the event \(G\) occurs: both leaders are male, or both leaders are female. Since these possibilities are 
+    disjoint, we have \(G = (G \cap E) \cup (G \cap F)\). Then, using the definition of conditional probability, we have
+    \begin{align*}
+        \mathrm{Pr}(G | E \cup F) = \frac{\mathrm{Pr}(G \cap (E \cup F))}{\mathrm{Pr}(E \cup F)} 
+        = \frac{\mathrm{Pr}\big( (G \cap E) \cup (G \cap F) \big)}{\mathrm{Pr}(E \cup F)} 
+        = \frac{\mathrm{Pr}(G)}{\mathrm{Pr}(E \cup F)} = \frac{77}{109}.
+    \end{align*}
+\end{itemize}
+
+
 
 \end{document}
