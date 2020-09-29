@@ -20,7 +20,7 @@
             \end{tabularx}
         }
     }
-}[\leavevmode\hspace*{\dimexpr-\fontdimen2\font-\fontdimen3\font}]
+}[\leavevmode\hspace*{\dimexpr-\fontdimen2\font-\fontdimen3\font+0.25em}]
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -69,6 +69,34 @@ We will let H denote a heads and T denote a tails.
 
 %' ============================================================================================================================================================
 \section{Question 2} \noindent
-
+For each of the scenarios, we are pulling five cards from a well-shuffled deck without replacement. Since the order of the cards does 
+not matter, there are \(\binom{52}{5}\) total possible combinations. 
+% Also note that we are \textit{excluding} any better hands when counting
+% the probabilities; for example, when finding the probability of a straight flush, we will not consider a royal flush.
+\begin{itemize}
+    \item[(a)] \textsl{Royal flush}: since the order does not matter, for a given suite there is only one possible royal flush, so there are 
+    only four possible royal flushes (one for each suite). So the probability of getting a royal flush is \(4 / \binom{52}{5}\).
+    \item[(b)] \textsl{Straight flush}: for a given suite, not counting the royal flush, there are nine possible card combinations that fit 
+    this criteria, meaning there are 36 possible straight flushes. So the probability of getting a straight flush is \(36 / \binom{52}{5}\).
+    \item[(c)] \textsl{Four of a kind}: to select four cards of the same value, we must select all four suites of a given value, of which there
+    are 13. Once this happens, four of the five cards in the hand have been determined, and we just have to select the last card. There are 12 
+    possible card values and four possible suites. Therefore, there are \(13\cdot12\cdot4 = 624\) plausible hands, and the probability of getting 
+    a four of a kind is \(624 / \binom{52}{5}\).
+    \item[(d)] \textsl{Flush}: each suite has 13 unique values, so there are \(\binom{13}{5}\) ways to select five cards for a given suite. 
+    However, this is including the ten possible \textit{consecutive} hands, which must be removed (as that hand would be either a straigh or 
+    royal flush). This can be done for each suite, so there are \(4 \left( \binom{13}{5} - 10 \right)\) plausible hands, and so the probability 
+    of getting a flush is \(4 \left( \binom{13}{5} - 10 \right) / \binom{52}{5}\).
+    \item[(e)] \textsl{Three of a kind}: to get three cards of the same value, for a given value we have to choose three cards from the four possible
+    suites. There are \(\binom{4}{3}\) ways to do this for each of the 13 values. For the remaining two cards to be chosen, there are 12 possible 
+    values to choose from (choosing the same value of the three matching cards would give us a four of a kind), and each of these two cards can be 
+    any of the four suites. That is, there are \(\binom{12}{2}\cdot4\cdot4\) ways to choose the last two cards. Therefore, there are 
+    \(\binom{4}{3}\cdot13\cdot\binom{12}{2}\cdot4\cdot4 = 208\binom{4}{3}\binom{12}{2}\) plausible hands, and so the probability of 
+    getting a three of a kind is \(208\binom{4}{3}\binom{12}{2} / \binom{52}{5}\).
+    \item[(f)] \textsl{Two pairs}: to get two pairs of cards of the same value, we have to have two unique values to begin with, and there are 
+    \(\binom{13}{2}\) ways to choose them. For each value, we are choosing two of the four possible suites, so there are \(\binom{4}{2}\) choices 
+    \textit{for each value}. For the last card, there are 11 possible values (choosing either of the previous values would result in a three of a kind),
+    and from these there are four possible suites, so there are 44 ways to choose the last card. So there are \(44\binom{13}{2}\binom{4}{2}^2\) plausible 
+    hands, and so the probability of getting two pairs is \(44\binom{13}{2}\binom{4}{2}^2 / \binom{52}{5}\).
+\end{itemize}
 
 \end{document}
