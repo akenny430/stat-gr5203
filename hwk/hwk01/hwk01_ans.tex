@@ -115,7 +115,7 @@ also assuming committee choices are independent.
     \item[(b)] \(E\cap F\) is the event that the president is female and the vice president is male. There are \(16\cdot32\) ways this can happen, so 
     \(\mathrm{Pr}(E\cap F) = \frac{16\cdot32}{48\cdot47} = 32/141\). To find \(\mathrm{Pr}(E\cup F)\) (the probability that the president is female or 
     the vice-president is a male), we have \[\mathrm{Pr}(E \cup F) - \mathrm{Pr}(E) + \mathrm{Pr}(F) - \mathrm{Pr}(E\cap F) = 1/3 + 2/3 - 32/141 = 109/141.\]
-    Finally, since the event \(E\cap F\) requires the leaders to be of opposite sex, we know that \((e\cap F)\cap G = \emptyset\), which means 
+    Finally, since the event \(E\cap F\) requires the leaders to be of opposite sex, we know that \((E\cap F)\cap G = \emptyset\), which means 
     \(\mathrm{Pr}(E \cap F \cap G) = 0\). 
     \item[(c)] There are two possibilities when the event \(G\) occurs: both leaders are male, or both leaders are female. Since these possibilities are 
     disjoint, we have \(G = (G \cap E) \cup (G \cap F)\). Then, using the definition of conditional probability, we have
@@ -125,6 +125,15 @@ also assuming committee choices are independent.
         = \frac{\mathrm{Pr}(G)}{\mathrm{Pr}(E \cup F)} = \frac{77}{109}.
     \end{align*}
 \end{itemize}
+
+%' ============================================================================================================================================================
+\section{Question 4} \noindent
+Since we want to consider the location of the four aces in the card deck, order does matter here, and so there are \(52!\) ways of shuffling the deck. 
+% To answer this question, we will use a geometric argument
+To solve this problem, we will first shuffle the four aces separately, then shuffle the remaining cards, then finally insert the four aces together into the
+rest of the deck. There are \(4!\) ways to arrange the four aces and \(48!\) ways of arranging the remaining cards, and there are 49 possible spaces 
+where the four aces can be inserted into the rest of the deck. Therefore, there are \(4!\cdot48!\cdot49 = 4!\cdot49!\) plausible deck arrangements, and so the probability
+that the four aces are next to each other is \(4!\cdot49! / 52! = 1 / 5525\). 
 
 
 
