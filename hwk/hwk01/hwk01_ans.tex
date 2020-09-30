@@ -180,6 +180,30 @@ events is disjoint.
     \end{align*}
 \end{itemize}
 
+%' ============================================================================================================================================================
+\section{Question 7} \noindent
+Let \(C\) be the event that the question is answered correctly. Both the husband and the wife answer the question correctly with probability \(p\).
+\begin{itemize}
+    \item[(a)] For the first strategy, let \(H\) be the event that the husband is chosen, and let \(W\) be the event that the wife is 
+    chosen. We have \(\mathrm{Pr}(C | H) = \mathrm{Pr}(C | W) = p\), and since 
+    we are randomly choosing either the husband or wife, so \(\mathrm{Pr}(H) = \mathrm{Pr}(W) = 1/2\). By the law of total 
+    probability, we have \(\mathrm{Pr}(C) = \mathrm{Pr}(C | H) \mathrm{Pr}(H) + \mathrm{Pr}(C | W) \mathrm{Pr}(W) = p/2 + p/2 = p\).
+    \item[(b)] For the second strategy, there are three possible ways that they can be correct:
+    \begin{enumerate}
+        \item Both the husband and wife are correct and agree.
+        \item The husband is correct and the wife is incorrect, so they flip a coin and are correct.
+        \item The wife is correct and the husband is incorrect, so they flip a coin and are correct.
+    \end{enumerate}
+    The probability of the first scenario is \(p^2\). In both the second and third scenarios, the probability of them 
+    disagreeing is \(p(1-p)\). When flipping a coin, the probability that the coin is correct is \(1/2\), so the probability
+    of the couple disagreeing and the coin being correct is \(p(1-p)/2\), since the two events are independent. Finally, since all three
+    scenarios are disjoint, we have 
+    \begin{align*}
+        \mathrm{Pr}(C) = p^2 + \frac{p(1-p)}{2} + \frac{p(1-p)}{2} = p^2 + p - p^2 = p.
+    \end{align*}
+\end{itemize}
+We have shown that \textit{the probability of being correct is the same for both stragies}. 
+
 
 
 \end{document}
