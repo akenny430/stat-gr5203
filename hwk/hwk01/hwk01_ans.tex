@@ -282,6 +282,15 @@ The United States selects two senators from each of the 50 states, so there are 
     \(2^{50} / \binom{100}{50}\). 
 \end{itemize}
 
+%' ============================================================================================================================================================
+\section{Question 14} \noindent
+There are \(6^7\) possible combinations of dice numbers, and note that we are considering the order in which the dice land. 
+Since there are only 6 possible numbers that a single die can display, but seven different dice, then one of the six numbers 
+will be repeated somewhere, and the other five numbers will appear only once. That is, we can think of splitting up the seven spots into one group of two and
+five groups of 1. So for a given number that repeats twice, there are \(\binom{7}{2,1,1,1,1,1}\) ways to arrange the dice, and since there are six possible 
+numbers that can repeat, we have \(6\binom{7}{2,1,1,1,1,1}\) possible arrangements. Therefore, the probability of all numbers appearing 
+at least once is \(6\binom{7}{2,1,1,1,1,1} / 6^7 = \binom{7}{2,1,1,1,1,1} / 6^6\).
+
 
 
 \end{document}
