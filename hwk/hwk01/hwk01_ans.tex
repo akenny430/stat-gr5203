@@ -182,7 +182,8 @@ events is disjoint.
 
 %' ============================================================================================================================================================
 \section{Question 7} \noindent
-Let \(C\) be the event that the question is answered correctly. Both the husband and the wife answer the question correctly with probability \(p\).
+Let \(C\) be the event that the question is answered correctly, and let \(I\) be the event that the question is answered incorrectly. 
+Both the husband and the wife answer the question correctly with probability \(p\) and incorrectly with probability \(1-p\). 
 \begin{itemize}
     \item[(a)] For the first strategy, let \(H\) be the event that the husband is chosen, and let \(W\) be the event that the wife is 
     chosen. We have \(\mathrm{Pr}(C | H) = \mathrm{Pr}(C | W) = p\), and since 
@@ -203,6 +204,21 @@ Let \(C\) be the event that the question is answered correctly. Both the husband
     \end{align*}
 \end{itemize}
 We have shown that \textit{the probability of being correct is the same for both stragies}. 
+
+%' ============================================================================================================================================================
+\section{Question 8} \noindent
+Let \(p = 0.6\), let \(A\) be the event that the couple agrees, and let \(D\) be the event that the couple disagrees. We note that \(A \cap D = \emptyset\), 
+since the couple cannot agree and disagree at the same time. 
+\begin{itemize}
+    \item[(a)] We note that \(\mathrm{Pr}(A \cap C) = p^2\) and \(\mathrm{Pr}(A \cap I) = (1-p)^2\). Then using Bayes' theorem, we have 
+    \begin{align*}
+        \mathrm{Pr}(C | A) = \frac{\mathrm{Pr}(A \cap C)}{\mathrm{Pr}(A)} = \frac{\mathrm{Pr}(A \cap C)}{\mathrm{Pr}(A \cap C) + \mathrm{Pr}(A \cap I)} 
+        = \frac{p^2}{p^2 + (1-p)^2}.
+    \end{align*}
+    When \(p = 0.6\), we have \(\mathrm{Pr}(C | A) = 0.6923077\).
+    \item[(b)] When the couple disagrees, their answer being correct comes down to the coin flip, and so \(\mathrm{Pr}(C | D) = 1/2\). 
+\end{itemize}
+So, using the second strategy, the couple is more likely to be correct if they agree on the answer. 
 
 
 
