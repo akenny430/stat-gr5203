@@ -135,6 +135,22 @@ rest of the deck. There are \(4!\) ways to arrange the four aces and \(48!\) way
 where the four aces can be inserted into the rest of the deck. Therefore, there are \(4!\cdot48!\cdot49 = 4!\cdot49!\) plausible deck arrangements, and so the probability
 that the four aces are next to each other is \(4!\cdot49! / 52! = 1 / 5525\). 
 
+%' ============================================================================================================================================================
+\section{Question 5} \noindent
+For this question, we only care about how the first 30 students are chosen, since that will automatically tell us the students in both classrooms, and there 
+are \(\binom{60}{30}\) ways to choose 30 of the 60 students. 
+\begin{itemize}
+    \item[(a)] There is only 1 way to choose all five friends to be in the same class, and then there are \(\binom{55}{25}\) ways to choose the remaining 
+    25 studnets. So the probability of all five friends being in the same class is \(\binom{55}{25} / \binom{60}{30}\).
+    \item[(b)] There are \(\binom{5}{4}\) ways of choosing four of the five friends to be in the same class, and then \(\binom{56}{26}\) ways to choose the 
+    remaining 26 students. So the probability that four of the five friends is in the same class is \(\binom{5}{4}\binom{56}{26} / \binom{60}{30}\). We can 
+    see a more general pattern here: there are \(\binom{5}{j} \binom{60 - j}{30 - j}\) ways to have \(j\) of the five friends be in the same class, for 
+    \(j = 0, \ldots,5\); in part (a), \(j = 5\), and in part (b), \(j=4\). 
+    \item[(c)] While there are \(\binom{5}{4}\) ways for \textit{any} of the four friends to be chosen in the class, there is only \textit{one} way in which 
+    Marcelle is left out. Since there are \(\binom{56}{26}\) ways to choose the other 26 students whenever Marcell is left out, the probability that Marcell 
+    is in class by herself is \(\binom{56}{25} / \binom{60}{30}.\)
+\end{itemize}
+
 
 
 \end{document}
