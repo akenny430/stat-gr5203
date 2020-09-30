@@ -267,6 +267,21 @@ Let \(M\) be the number on the first dice, and let \(N\) be the number on the se
 Using a brute force approach, we can see that there are 24 different combinations whose difference is less than three (e.g. \((3,3), (6,4), (5,4)\)). Since 
 there are 36 possible number combinations, each with an equal chance of occuring, we have \(\mathrm{Pr}(|M - N| < 3) = 24/36 = 2/3\). 
 
+%' ============================================================================================================================================================
+\section{Question 13} \noindent
+The United States selects two senators from each of the 50 states, so there are 100 total members in the Senate. 
+\begin{itemize}
+    \item[(a)] There are \(\binom{100}{8}\) ways to choose eight senators for this committee. 
+    Let \(E\) be the event that one of the two senators from a specified state are selected, and so \(E^c\) is the event that neither senator from 
+    a specified state is on the eight-person committee. If these two senators are not considered to be chosen, then there are \(\binom{98}{8}\) ways to choose 
+    the eight senators from the remainimg 48. That is, \(\mathrm{Pr}(E^c) = \binom{98}{8} / \binom{100}{8}\), and so 
+    \(\mathrm{Pr}(E) = 1 - \binom{98}{8} / \binom{100}{8}\).
+    \item[(b)] There are \(\binom{100}{50}\) ways to choose 50 senators. There are two ways you can select one (and only one) senator from each state, and 
+    since the picks
+    are independent, there are \(2^{50}\) ways to choose one senator from each state. Therefore, the probability of having one senator from each state is 
+    \(2^{50} / \binom{100}{50}\). 
+\end{itemize}
+
 
 
 \end{document}
