@@ -151,6 +151,35 @@ are \(\binom{60}{30}\) ways to choose 30 of the 60 students.
     is in class by herself is \(\binom{56}{25} / \binom{60}{30}.\)
 \end{itemize}
 
+%' ============================================================================================================================================================
+\section{Question 6} \noindent
+Let \(I_j\) be the event that the stock's price moves up on day \(j\), and let \(D_j\) be the event that the stock's price moves down on day \(j\). 
+We have \(\mathrm{Pr}(I_j) = p\) and \(\mathrm{Pr}(D_j) = 1 - p\) for all \(j\), the changes on each day are independent, and each unique sequence of 
+events is disjoint. 
+\begin{itemize}
+    \item[(a)] Let \(E\) be the event that the stock's price stays the same after two days. There are two ways this can happen: \(I_1 \cap D_2\) or 
+    \(D_1 \cap I_2\). So 
+    \begin{align*}
+        \mathrm{Pr}(E) &= \mathrm{Pr} \Big( (I_1 \cap D_2) \cup (D_1 \cap I_2) \Big) \\
+        &= \mathrm{Pr}(I_1)\mathrm{Pr}(D_2) + \mathrm{Pr}(D_1) \mathrm{Pr}(I_2) 
+        = p(1-p) + (1-p)p = 2p(1-p).
+    \end{align*}
+    \item[(b)] Let \(F\) be the event that the stock's price increases by 1 unit after three days. There are three ways this can happen: \(I_1 \cap D_2 \cap I_3\), 
+    \(D_1 \cap I_2 \cap I_3\), or \(I_1 \cap I_2 \cap D_3\). So 
+    \begin{align*}
+        \mathrm{Pr}(F) &= \mathrm{Pr} \Big( (I_1 \cap D_2 \cap I_3) \cup (D_1 \cap I_2 \cap I_3) \cup (I_1 \cap I_2 \cap D_3) \Big) \\
+        &= \mathrm{Pr}(I_1)\mathrm{Pr}(D_2)\mathrm{Pr}(I_3) + \mathrm{Pr}(D_1)\mathrm{Pr}(I_2)\mathrm{Pr}(I_3) + \mathrm{Pr}(I_1)\mathrm{Pr}(I_2)\mathrm{Pr}(D_3) \\
+        &= p(1-p)p + (1-p)p^2 + p^2 (1-p) = 3p^2(1-p).
+    \end{align*}
+    \item[(c)] %We want to determine \(\mathrm{Pr}(I_1 | F)\). 
+    We observe that of the three possibile scenarios in \(F\), two of them begin with \(I_1\), and so \(\mathrm{Pr}(I_1 \cap F) = 2 p^2 (1-p)\) (to be
+    more rigorous, we could show that \(I_1 \cap F = 
+    (I_1 \cap D_2 \cap I_3) \cup (I_1 \cap I_2 \cap D_3)\) and then calculate the probability directly). We then have 
+    \begin{align*}
+        \mathrm{Pr}(I_1 | F) = \frac{\mathrm{Pr}(I_1 \cap F)}{\mathrm{Pr}(F)} = \frac{2 p^2 (1-p)}{3 p^2 (1-p)} = \frac{2}{3}.
+    \end{align*}
+\end{itemize}
+
 
 
 \end{document}
