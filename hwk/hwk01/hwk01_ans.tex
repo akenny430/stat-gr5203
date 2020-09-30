@@ -291,6 +291,21 @@ five groups of 1. So for a given number that repeats twice, there are \(\binom{7
 numbers that can repeat, we have \(6\binom{7}{2,1,1,1,1,1}\) possible arrangements. Therefore, the probability of all numbers appearing 
 at least once is \(6\binom{7}{2,1,1,1,1,1} / 6^7 = \binom{7}{2,1,1,1,1,1} / 6^6\).
 
+%' ============================================================================================================================================================
+\section{Question 15} \noindent
+There are \(\binom{90}{10}\) ways to choose ten of the 90 balls without replacement. Let \(R, W, B\) denote the events that \textit{no} red, white, or blue
+balls (respectively) are selected. We have 
+\begin{align*}
+    \mathrm{Pr}(R \cup W \cup B) = \mathrm{Pr}(R) + \mathrm{Pr}(W) &+ \mathrm{Pr}(B) \\
+    &- \mathrm{Pr}(R \cap W) - \mathrm{Pr}(R \cap B) - \mathrm{Pr}(W \cap B) 
+    + \mathrm{Pr}(R \cap W \cap B). 
+\end{align*}
+There are \(\binom{60}{10}\) ways to choose ten balls with one color missing, there are \(\binom{30}{10}\) ways to choose ten balls where two colors are
+missing, and there is no way to choose ten balls where all three colors are missing. Therefore, 
+\begin{align*}
+    \mathrm{Pr}(R \cup W \cup B) = 3 \left( \frac{\binom{60}{10} + \binom{30}{10}}{\binom{90}{10}} \right).
+\end{align*}
+
 
 
 \end{document}
