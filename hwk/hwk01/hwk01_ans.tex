@@ -220,6 +220,18 @@ since the couple cannot agree and disagree at the same time.
 \end{itemize}
 So, using the second strategy, the couple is more likely to be correct if they agree on the answer. 
 
+%' ============================================================================================================================================================
+\section{Question 9} \noindent
+There are \(n\) independent coint flips, and for each coin toss we have \(\mathrm{Pr}(H) = p\). Let \(K\) denote the number of heads that show up throughout
+the \(n\) flips. We want to determine how large \(n\) should be such that \(\mathrm{Pr}(K \ge 1) \ge 1/2\). First, we observe that \(\mathrm{Pr}(K \ge 1) = 
+1 - \mathrm{Pr}(K = 0)\). Since \(K = 0\) corresponds to observing \(n\) tails, we have \(\mathrm{Pr}(K = 0) = (1-p)^n\), and so we have 
+\(1 - (1-p)^n \ge 1/2\). Slightly rearranging gives us \((1-p)^n \le 1/2\), and taking the log of both sides gives us \(n \ln(1 - p) \le \ln(1/2)\). Since 
+\(1 - p \le 1\), we have \(\ln(1-p) \le 0\), and dividing by it will flip the inequality. Therefore, we need 
+\begin{align*}
+    n \ge \frac{\ln(1/2)}{\ln(1-p)} = - \frac{\ln 2}{\ln (1-p)}.
+\end{align*}
+We note that as \(p \to 1\), this lower bound approaches infinity, which makes sense intuitively.
+
 
 
 \end{document}
