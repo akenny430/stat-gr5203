@@ -70,4 +70,49 @@ Let \(X\) have a pdf of \(f(x) = c x^2\) for \(0 \le x \le 1\) and \(f(x) = 0\) 
     \end{align*}
 \end{itemize}
 
+%' ============================================================================================================================================================
+\section{Question 2} \noindent
+Two discrete random variables \(X\) and \(Y\) are jointly distributed. 
+\begin{itemize}
+    \item[(a)] The marginal pmf for \(X\) is obtained by summing over every value of \(Y\) for each value of \(X\).
+    For example, to find the marginal probability that \(X=1\), we have \(f_X(x) = 0.10 + 0.05 + 0.02 + 0.02 = 0.19\). 
+    The other values are obtained in the same way. Finding the marginal pmf for \(Y\) is done the exact same way, and 
+    it turns out that \(f_X(j) = f_Y(j)\) for \(j = \{1,2,3,4\}\); they are both found in Table \ref{q02-tab}.
+    \item[(b)] \(X\) and \(Y\) are not independent. For two random variables to be independent, we need \(f(x,y) = f_X(x)\cdot f_Y(y)\)
+    for all possible \((x,y)\) pairs. Here we have \(f(1,1) = 0.10\) and \(f_X(1)\cdot f_Y(1) = 0.19^2 \neq f(1,1)\), meaing 
+    \(X\) and \(Y\) are dependent. 
+    \item[(c)] To find the conditional pmf of \(X\) given that \(Y=1\), we take each value of \(f(x,1)\) and divide by \(f_Y(1)\), 
+    i.e. \(f_{X|Y}(x|1) = f(x,1) / f_Y(1)\). For example, we have \(f_{X|Y}(1|1) = 0.10 / 0.19 = 10/19\). Finding the conditional pmf for 
+    \(Y\) given that \(X = 1\) is done in a similar way, and again they are the same. 
+    Both pmfs can be found in be found in Table \ref{q02-tab}.
+\end{itemize}
+\begin{table}
+    \centering
+    \def\arraystretch{1.25}
+    \begin{tabular}[ht]{|c|cccc|} \hline
+        \(_X\backslash^Y\) & 1 & 2 & 3 & 4 \\\hline
+        1 & 0.10 & 0.05 & 0.02 & 0.02 \\
+        2 & 0.05 & 0.20 & 0.05 & 0.02 \\
+        3 & 0.02 & 0.05 & 0.20 & 0.04 \\
+        4 & 0.02 & 0.02 & 0.04 & 0.10 \\\hline
+    \end{tabular}
+    \vspace{1em}
+
+    \begin{tabular}[ht]{|c|cccc|} \hline
+        \(x\) & 1 & 2 & 3 & 4 \\\hline
+        \(f_X(x)\) & 0.19 & 0.32 & 0.31 & 0.18 \\
+        \(f_{X|Y}(x|1)\) & 10/19 & 5/19 & 2/19 & 2/19 \\\hline
+    \end{tabular}
+    \quad
+    \begin{tabular}[ht]{|c|cccc|} \hline
+        \(y\) & 1 & 2 & 3 & 4 \\\hline
+        \(f_Y(y)\) & 0.19 & 0.32 & 0.31 & 0.18 \\
+        \(f_{Y|X}(y|1)\) & 10/19 & 5/19 & 2/19 & 2/19 \\\hline
+    \end{tabular}
+    \caption{Information for question 2.}
+    \label{q02-tab}
+\end{table}
+
+
+
 \end{document}
