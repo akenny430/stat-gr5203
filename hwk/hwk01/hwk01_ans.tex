@@ -306,6 +306,20 @@ missing, and there is no way to choose ten balls where all three colors are miss
     \mathrm{Pr}(R \cup W \cup B) = 3 \left( \frac{\binom{60}{10} + \binom{30}{10}}{\binom{90}{10}} \right).
 \end{align*}
 
-
+%' ============================================================================================================================================================
+\section{Question 16} \noindent
+If two events \(A\) and \(B\) in the sample space \(\mathcal{S}\) are disjoint, then \(A \cap B = \emptyset\). 
+% Suppose that there is an element  
+% \(x \in \mathcal{S}/\emptyset\) such that \(x \not \in A\) and \(x \not \in B\). By definition, we have \(x \in A^c\) and \(x \in B^c\), so 
+% \(x \in A^c \cap B^c\), which means that \(A^c\) and \(B^c\) are not disjoint. For \(A^c\) and \(B^c\) to be disjoint, we require 
+% \(A^c \cap B^c = \emptyset\). Using DeMorgan's Laws, we have \((A \cup B)^c = \emptyset\)
+We want to have \(A^c\) and \(B^c\) be disjoint, i.e. \(A^c \cap B^c = \emptyset\).
+Taking the complement of both sides gives us 
+\begin{align*}
+    \Big( A^c \cap B^c \Big)^c = \big( A^c \big)^c \cup \big( B^c \big)^c = A \cup B
+    = \emptyset^c = \mathcal{S}.
+\end{align*}
+Namely, we have \(A \cup B = \mathcal{S}\). We need the sample space to be split into exactly two non-overlapping events \(A\) and \(B\) to have both 
+\(A \cap B = \emptyset\) and \(A^c \cap B^c = \emptyset\).
 
 \end{document}
