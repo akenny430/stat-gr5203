@@ -50,6 +50,24 @@
 
 %' ============================================================================================================================================================
 \section{Question 1} \noindent
-
+Let \(X\) have a pdf of \(f(x) = c x^2\) for \(0 \le x \le 1\) and \(f(x) = 0\) elsewhere. 
+\begin{itemize}
+    \item[(a)] For this to be a valid pdf, it must integrate to \(1\) over the support. So 
+    \begin{align*}
+        \int_0^1 c x^2 \;\mathrm{d}x = \left. \frac{c x^3}{3} \right|_0^1 = \frac{c}{3} ~\overset{\text{set}}{=}~ 1,
+    \end{align*}
+    which leads to \(c = 3\). So \(f(x) = 3x^2\) for \(0 \le x \le 1\). 
+    \item[(b)] The cdf is given by 
+    \begin{align*}
+        F(x) = \int_{-\infty}^x f(t) \;\mathrm{d}t = \int_0^x 3t^2 \;\mathrm{d}t = \left. t^3 \right|_0^x = x^3
+    \end{align*}
+    for \(0 \le x \le 1\). We also have \(F(x) = 0\) when \(x < 0\) and \(F(x) = 1\) when \(x > 1\).
+    \item[(c)] We have 
+    \begin{align*}
+        \mathrm{Pr}\left(\frac{1}{10} \le X \le \frac{1}{2} \right) 
+        = F\left( \frac{1}{2} \right) - F \left( \frac{1}{10} \right)
+        = \frac{1}{2^3} - \frac{1}{10^3} = \frac{31}{250}.
+    \end{align*}
+\end{itemize}
 
 \end{document}
