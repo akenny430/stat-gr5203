@@ -86,6 +86,7 @@ Two discrete random variables \(X\) and \(Y\) are jointly distributed.
     \(Y\) given that \(X = 1\) is done in a similar way, and again they are the same. 
     Both pmfs can be found in be found in Table \ref{q02-tab}.
 \end{itemize}
+
 \begin{table}
     \centering
     \def\arraystretch{1.25}
@@ -209,7 +210,48 @@ A derivation of this result can be found in Appendix A.
         = \frac{e^{-x}}{8} \cdot \frac{4 x^3}{3}
         = \frac{x^3 \mathrm{e}^{-x}}{6}
     \end{align*}
-    for \(x \ge 0\). 
+    for \(x \ge 0\). When considering all possible \(-\infty < y < \infty\), we must split the support into two regions: where \(y \ge 0\) and 
+    where \(y < 0\). When \(y \ge 0\), we have \(0 \le y \le x < \infty\), so we have \(y \le x < \infty\). In this region, the marginal density 
+    is given by 
+    \begin{align*}
+        f_Y(y) &= \int_y^{\infty} \int_{-x}^{x} \frac{\big( x^2 - y^2 \big) \mathrm{e}^{-x}}{8} \;\mathrm{d}x
+        = \frac{1}{8} \left( \int_y^{\infty} x^2 \mathrm{e}^{-x} \;\mathrm{d}x - y^2 \int_y^{\infty} \mathrm{e}^{-x} \;\mathrm{d}x \right) \\
+        &= \frac{1}{8} \big( \Omega(y,2) - y^2 \cdot \Omega(y,0) \big)
+        = \frac{1}{8} \big( \mathrm{e}^{-y}(2 + 2y + y^2) - y^2\mathrm{e}^{-y} \big)
+        = \frac{(1 + y) e^{-y}}{8}.
+    \end{align*}
+    In the second region, where \(y < 0\), we have \(0 > y \ge -x > - \infty\), and so we can have \(-y < x < \infty\). 
+    % By letting \(\tilde{y} = -y\) (and so \(\mathrm{d}\tilde{y} = - \mathrm{d}y\)),
+    The marginal density is this region is given by 
+    \begin{align*}
+        f_Y(y) &= \int_{-y}^{\infty} \frac{\big( x^2 - y^2 \big) \mathrm{e}^{-x}}{8} \;\mathrm{d}x
+        = \frac{1}{8} \left( \int_{-y}^{\infty} x^2 \mathrm{e}^{-x} \;\mathrm{d}x - y^2 \int_y^{\infty} \mathrm{e}^{-x} \;\mathrm{d}x \right) \\
+        &= \frac{1}{8} \big( \Omega(-y,2) - y^2 \cdot \Omega(-y,0) \big)
+        = \frac{1}{8} \big( \mathrm{e}^{y}(2 - 2y + y^2) - y^2\mathrm{e}^{y} \big)
+        = \frac{(1 - y) e^{y}}{8}.
+    \end{align*}
+    As a whole, the joint density is given by 
+    \begin{align*}
+        f_Y(y) = \begin{cases}
+            (1 + y)\mathrm{e}^{-y} / 8 & \text{when \(y \ge 0\)}, \\
+            (1 - y)\mathrm{e}^{y} / 8  & \text{when \(y < 0\)}. \\
+        \end{cases}
+    \end{align*}
+    \item[(d)] The conditional distrubution \(f_{X|Y}(x|y)\) is found by dividing \(f(x,y)\) by \(f_Y(y)\):
+    % By doing this, the conditional distrubutions are seen to be 
+    \begin{align*}
+        f_{X|Y}(x|y) = \begin{dcases}
+            % \frac{(x^2 - y^2)\mathrm{e}^{-x}/8}{(1+y)\mathrm{e}^{-y}/4}
+            \frac{(x^2 - y^2)\mathrm{e}^{y-x}}{2(1+y)},    & y \ge 0,~  y \le x < \infty \\
+            \frac{(x^2 - y^2)\mathrm{e}^{-(y+x)}}{2(1-y)}, & y < 0,~    -y < x < \infty
+        \end{dcases}
+    \end{align*}
+    Similarly, 
+    \begin{align*}
+        f_{Y|X}(y|x) = \frac{3(x^2 - y^2)}{4x^2}, ~ -x \le y \le x.
+    \end{align*}
 \end{itemize}
+
+
 
 \end{document}
