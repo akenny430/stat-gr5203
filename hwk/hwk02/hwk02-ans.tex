@@ -143,6 +143,37 @@ These results make sense intuitively. For \(f_X(x)\), we can see that the highes
 height of the ellipse is the greatest, so there is more ``width'' for \(x = 0\) to be chosen. And as \(x \to \pm a\), \(f_X(x) \to 0\), meaning that the closer
 you get to the end of the ellipse, the less likely that point is to be chosen. 
 
+%' ============================================================================================================================================================
+\section{Question 4} \noindent
+The joint cdf of \(X\) and \(Y\) is given by \(F(x,y) = \big( 1 - \mathrm{e}^{-\alpha x} \big) \big( 1 - \mathrm{e}^{-\beta y} \big)\) for \(x,y \ge 0\) and
+\(F(x,y) = 0\) elsewhere, where \(\alpha, \beta > 0\) are fixed constants. 
+\begin{itemize}
+    \item[(a)] \(X\) and \(Y\) are independent. This is because we can express the joing cdf as \(F(x,y) = G(x)\cdot H(y)\), where \(G(x) = 1 - \mathrm{e}^{-\alpha x}\)
+    and \(H(y) = 1 - \mathrm{e}^{-\beta y}\). 
+    \item[(b)] The joint pdf is given by 
+    \begin{align*}
+        f(x,y) = \frac{\partial^2 F}{\partial x \partial y} 
+        = \frac{\partial}{\partial x}\big( 1 - \mathrm{e}^{-\alpha x} \big) \cdot \frac{\partial}{\partial y}\big( 1 - \mathrm{e}^{-\beta y} \big)
+        = \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y}
+        % = \alpha \beta \mathrm{e}^{-\alpha x - \beta y}
+    \end{align*}
+    for \(x, y \ge 0\) and \(f(x,y) = 0\) elsewhere. The marginal densities are given by 
+    \begin{align*}
+        f_X(x) 
+        % &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \beta \mathrm{e}^{-\alpha x - \beta y} \;\mathrm{d}y
+        &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y} \;\mathrm{d}y
+        = \alpha \mathrm{e}^{-\alpha x} \cdot \lim_{\phi \to \infty} \left[- \mathrm{e}^{-\beta y} \right]_0^{\phi}
+        = \alpha \mathrm{e}^{-\alpha x}, \\
+        f_Y(y) 
+        % &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \beta \mathrm{e}^{-\alpha x - \beta y} \;\mathrm{d}x
+        &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y} \;\mathrm{d}x
+        = \beta \mathrm{e}^{-\beta y} \cdot \lim_{\phi \to \infty} \left[- \mathrm{e}^{-\alpha x} \right]_0^{\phi}
+        = \beta \mathrm{e}^{-\beta y}.
+    \end{align*}
+    Here we see that \(f_X(x)\cdot f_Y(y) = \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y} = f(x,y)\), another indication 
+    that \(X\) and \(Y\) are independent. 
+\end{itemize}
+
 
 
 \end{document}
