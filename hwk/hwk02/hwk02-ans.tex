@@ -174,6 +174,42 @@ The joint cdf of \(X\) and \(Y\) is given by \(F(x,y) = \big( 1 - \mathrm{e}^{-\
     that \(X\) and \(Y\) are independent. 
 \end{itemize}
 
-
+%' ============================================================================================================================================================
+\section{Question 5} \noindent
+Let \(X\) and \(Y\) have a joint pdf \(f(x,y) = c(x^2 - y^2)\mathrm{e}^{-x}\) for \(x \le 0\) and \(-x \le y \le x\).
+To help with some of the integrations, this question makes use of the following result:
+\begin{align*}
+    \Omega(\theta, n) \coloneqq \int_{\theta}^{\infty} x^n \mathrm{e}^{-x} \;\mathrm{d}x = n! \cdot \mathrm{e}^{-\theta} \sum_{k=0}^{n} \frac{\theta^k}{k!}
+\end{align*}
+for all \(\theta \in \mathbb{R}\) and \(n \in \mathbb{Z}_{\ge0}\). This specific integral came up so many times in this question that 
+I thought it was worth figuring out a general formula for it. 
+% I came up with this while doing the assignment;
+% a proof by induction can be found in Appendix A. 
+A derivation of this result can be found in Appendix A. 
+\begin{itemize}
+    \item[(a)] 
+    % This part will make use of the fact that \(\int_0^{\infty} x^n \mathrm{e}^{-x}\;\mathrm{d}x = n!\) for all \(n \in \mathbb{Z}_{\ge 0}\).
+    % A proof of this claim can be found in Appendix A. %, and a more intuitive derivation can be found % link GitHub.
+    Using the fact that the joint pdf must integrate to \(1\), we have 
+    \begin{align*}
+        1 &= \int_0^{\infty} \int_{-x}^{x} c \big( x^2 - y^2 \big) \mathrm{e}^{-x} \;\mathrm{d}y \;\mathrm{d}x
+        = c \int_0^{\infty} \mathrm{e}^{-x} \left[ x^2y - \frac{y^3}{3} \right]_{-x}^{x} \;\mathrm{d}x \\
+        &= \frac{4c}{3} \cdot \int_0^{\infty} x^3 \mathrm{e}^{-x} \;\mathrm{d}x
+        = \frac{4c \cdot \Omega(0,3)}{3} 
+        = \frac{4c \cdot 3!}{3}
+        = 8 c,
+    \end{align*}
+    and so \(c = 1/8\). 
+    \item[(b)] \(X\) and \(Y\) are not independent since the joint pdf does not have rectangular support. 
+    \item[(c)] When considering all possible \(x \ge 0\) values, we see that we must have \(-x \le y \le x\). 
+    So the marginal density of \(X\) is given by 
+    \begin{align*}
+        f_X(x) = \int_{-x}^x \frac{(x^2 - y^2)\mathrm{e}^{-x}}{8} \;\mathrm{d}x
+        = \frac{\mathrm{e}^{-x}}{8} \left[ x^2y - \frac{y^3}{3} \right]_{-x}^x
+        = \frac{e^{-x}}{8} \cdot \frac{4 x^3}{3}
+        = \frac{x^3 \mathrm{e}^{-x}}{6}
+    \end{align*}
+    for \(x \ge 0\). 
+\end{itemize}
 
 \end{document}
