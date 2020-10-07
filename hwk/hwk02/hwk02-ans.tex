@@ -115,6 +115,34 @@ Two discrete random variables \(X\) and \(Y\) are jointly distributed.
 
 %' ============================================================================================================================================================
 \section{Question 3} \noindent
+We are considering points \((x,y)\) uniformly selected within an ellipse given by the equation
+% \begin{align*}
+%     \left( \frac{x}{a} \right)^2 + \left( \frac{y}{b} \right)^2 = 1,
+% \end{align*}
+\((x/a)^2 + (y/b)^2 = 1\), where \(a,b > 0\). 
+Therefore, the probability of selecting a point \((x,y)\) from this region is \(f(x,y) = c\) for 
+% \(-a \le x \le a\) and \(-b\sqrt{1 - (x/a)^2} \le y \le b\sqrt{1 - (x/a)^2}\), and \(f(x,y) = 0\) elsewhere. 
+\(-a\le x \le a\), \(-b \le y \le b\), and \((x/a)^2 + (y/b)^2 \le 1\), and \(f(x,y) = 0\) elsewhere. 
+To find \(c\), we use the fact that a joint pdf must integrate to 1 over all values of \(x\) and \(y\), so 
+\begin{align*}
+    1 = \int_{-a}^{a} \int_{-b\sqrt{1 - (x/a)^2}}^{b\sqrt{1 - (x/a)^2}} c \;\mathrm{d}y \;\mathrm{d}x
+    = c \cdot 2 \int_{-a}^a b\sqrt{1 - (x/a)^2} \;\mathrm{d}x
+    = c \cdot \pi a b,
+\end{align*}
+which implies that \(c = 1 / \pi a b\). The last equality is from the fact that the area of an ellipse is \(\pi a b\), which is what the integral is computing. 
+To find the marginal density of \(X\) (\(Y\)), we integrate over all possible values of \(Y\) (\(X\)):
+\begin{align*}
+    f_X(x) &= \int_{-b\sqrt{1 - (x/a)^2}}^{b\sqrt{1 - (x/a)^2}} \frac{1}{\pi a b} \;\mathrm{d}y
+    = \frac{y}{\pi ab} \Big|_{-b\sqrt{1 - (x/a)^2}}^{b\sqrt{1 - (x/a)^2}} = \frac{2 \sqrt{1 - (x/a)^2}}{\pi a}
+    ~~\text{for \(-a \le x \le a\)}, \\
+    f_Y(y) &= \int_{-a\sqrt{1 - (y/b)^2}}^{a\sqrt{1 - (y/b)^2}} \frac{1}{\pi a b} \;\mathrm{d}x
+    = \frac{x}{\pi ab} \Big|_{-a\sqrt{1 - (y/b)^2}}^{a\sqrt{1 - (y/b)^2}} = \frac{2 \sqrt{1 - (y/b)^2}}{\pi b}
+    ~~\text{for \(-b \le y \le b\)}.
+\end{align*}
+These results make sense intuitively. For \(f_X(x)\), we can see that the highest probability is obtained when \(x = 0\). At \(x=0\), the 
+height of the ellipse is the greatest, so there is more ``width'' for \(x = 0\) to be chosen. And as \(x \to \pm a\), \(f_X(x) \to 0\), meaning that the closer
+you get to the end of the ellipse, the less likely that point is to be chosen. 
+
 
 
 \end{document}
