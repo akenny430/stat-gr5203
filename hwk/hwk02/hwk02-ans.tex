@@ -305,24 +305,25 @@ for \(0 \le x \le 4\), \(F(x) = 0\) if \(x < 0\), and \(F(x) = 1\) if \(x > 4\).
 \section{Appendix A} \noindent
 Here we will prove the result used throughout question 5. By using integration by parts with \(u = x^n\) and \(\mathrm{d}v = \mathrm{e}^{-x}\), we have 
 \begin{align*}
-    \int x^n \mathrm{e}^{-x} \;\mathrm{d}x = -x^n \mathrm{e}^{-x} + n \int x^{n-1} \mathrm{e}^{-x} \;\mathrm{d}x.
+    \int x^n \mathrm{e}^{-x} \;\mathrm{d}x = -x^n \mathrm{e}^{-x} + n \int x^{n-1} \mathrm{e}^{-x} \;\mathrm{d}x + C.
 \end{align*}
 The next integral must also be solved via integration by parts, with \(u = x^{n-1}\) and \(\mathrm{d}v = \mathrm{e}^{-x}\):
 \begin{align*}
-    \int x^n \mathrm{e}^{-x} \;\mathrm{d}x &= -x^n \mathrm{e}^{-x} + n \left( -x^{n-1} \mathrm{e}^{-x} + (n-1) \int x^{n-2} \mathrm{e}^{-x} \;\mathrm{d}x  \right) \\
-    &= -x^n \mathrm{e}^{-x} -nx^{n-1} \mathrm{e}^{-x} - n(n-1) \int x^{n-2} \mathrm{e}^{-x} \;\mathrm{d}x.
+    \int x^n \mathrm{e}^{-x} \;\mathrm{d}x &= -x^n \mathrm{e}^{-x} + n \left( -x^{n-1} \mathrm{e}^{-x} + (n-1) \int x^{n-2} \mathrm{e}^{-x} \;\mathrm{d}x  \right) + C \\
+    &= -x^n \mathrm{e}^{-x} -nx^{n-1} \mathrm{e}^{-x} - n(n-1) \int x^{n-2} \mathrm{e}^{-x} \;\mathrm{d}x + C.
 \end{align*}
 % Noticing that \(n(n-1)\cdots(n-k)\)
 By now a pattern starts to appear. We have to repeat the integration by parts for the right most integral \(n\) times in total. 
 % In doing so, we can see that the \(j\)th term in this sum takes the form \(n(n-1)\cdots()\)
-Completing this pattern and factoring out an \(n!\) from each term, we get
+Completing this pattern and factoring out an \(n!\) from each term yields
 \begin{align*}
     \int x^n \mathrm{e}^{-x} \;\mathrm{d}x &= -x^n \mathrm{e}^{-x} - nx^{n-1}\mathrm{e}^{-x} - n(n-1)x^{n-2}\mathrm{e}^{-x} - \cdots - n! + C\\
     &= -\mathrm{e}^{-x} \left( \frac{n!}{n!}x^{n} + \frac{n!}{(n-1)!}x^{n-1} + \frac{n!}{(n-2)!}x^{n-2} + \cdot + \frac{n!}{0!}x^0 \right) + C\\
     &= -n! \cdot \mathrm{e}^{-x} \left( \frac{x^n}{n!} + \frac{x^{n-1}}{(n-1)!} + \frac{x^{n-2}}{(n-2)!} + \cdot + \frac{x^0}{0!} \right) + C
-    = -n! \cdot \mathrm{e}^{-x} \sum_{k=0}^n \frac{x^k}{k!} + C,
+    = -n! \cdot \mathrm{e}^{-x} \sum_{k=0}^n \frac{x^k}{k!} + C.
 \end{align*}
-where \(C\) is the integration constant. Evaluating this integral from \(\theta\) to \(\infty\) gives us 
+% where \(C\) is the integration constant. 
+Evaluating this integral from \(\theta\) to \(\infty\) gives us 
 \begin{align*}
     \int_{\theta}^{\infty} x^n \mathrm{e}^{-x} \;\mathrm{d} 
     = \left[ -n! \cdot \mathrm{e}^{-x} \sum_{k=0}^n \frac{x^k}{k!} \right]_{\theta}^{\infty}
