@@ -286,7 +286,20 @@ The engineer also believes \(f(x) \propto (x+1)(8-x)\).
     \end{align*}
 \end{itemize}
 
-
+%' ============================================================================================================================================================
+\section{Question 9} \noindent
+Let \(X\) have a pdf given by \(f(x) = x/8\) for \(0 \le x \le 4\).
+The cdf is then given by
+\begin{align*}
+    F(x) = \int_0^x \frac{t}{8} \;\mathrm{d}t
+    = \frac{t^2}{16} \bigg|_0^x
+    = \frac{x^2}{16}
+\end{align*}
+for \(0 \le x \le 4\), \(F(x) = 0\) if \(x < 0\), and \(F(x) = 1\) if \(x > 4\). 
+\begin{itemize}
+    \item[(a)] We have \(\mathrm{Pr}(X \le t) = F(t) = t^2 / 16 \overset{\text{set}}{=} 1/4\), and solving for \(t\) gives us \(t = 2\). 
+    \item[(b)] We have \(\mathrm{Pr}(X \ge t) = 1 - F(t) = (16 - t^2)/16 \overset{\text{set}}{=} 1/2\), and solving for \(t\) gives us \(t = 2\sqrt{2}\).
+\end{itemize}
 
 %' ============================================================================================================================================================
 \section{Appendix A} \noindent
