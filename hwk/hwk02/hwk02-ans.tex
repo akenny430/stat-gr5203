@@ -253,6 +253,17 @@ A derivation of this result can be found in Appendix A.
 \end{itemize}
 
 %' ============================================================================================================================================================
+\section{Question 6} \noindent
+Suppose the rv \(X\) has some density \(f_X(x)\) and let \(Y = aX + b\) for some \(a \neq 0\), i.e. \(Y\) is a linear combination of \(X\). 
+We see that \(g(X) = aX + b\) is monotonic with inverse \(h(Y) = \frac{Y - b}{a}\) and \(h'(Y) = 1/a\). Then the density of \(Y\) is given by 
+\begin{align*}
+    f_Y(y) = f_X \big( h(y) \big) \cdot \big| h'(y) \big|
+    = f_X\left( \frac{y - a}{b} \right) \cdot \frac{1}{|a|} = \frac{y}{|a|}.
+\end{align*}
+
+
+
+%' ============================================================================================================================================================
 \section{Appendix A} \noindent
 Here we will prove the result used throughout question 5. By using integration by parts with \(u = x^n\) and \(\mathrm{d}v = \mathrm{e}^{-x}\), we have 
 \begin{align*}
