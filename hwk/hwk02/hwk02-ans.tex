@@ -87,33 +87,6 @@ Two discrete random variables \(X\) and \(Y\) are jointly distributed.
     Both pmfs can be found in be found in Table \ref{q02-tab}.
 \end{itemize}
 
-\begin{table}
-    \centering
-    \def\arraystretch{1.25}
-    % \begin{tabular}[ht]{|c|cccc|} \hline
-    %     \(_X\backslash^Y\) & 1 & 2 & 3 & 4 \\\hline
-    %     1 & 0.10 & 0.05 & 0.02 & 0.02 \\
-    %     2 & 0.05 & 0.20 & 0.05 & 0.02 \\
-    %     3 & 0.02 & 0.05 & 0.20 & 0.04 \\
-    %     4 & 0.02 & 0.02 & 0.04 & 0.10 \\\hline
-    % \end{tabular}
-    % \vspace{1em}
-
-    \begin{tabular}[b]{|c|cccc|} \hline
-        \(x\) & 1 & 2 & 3 & 4 \\\hline
-        \(f_X(x)\) & 0.19 & 0.32 & 0.31 & 0.18 \\
-        \(f_{X|Y}(x|1)\) & 10/19 & 5/19 & 2/19 & 2/19 \\\hline
-    \end{tabular}
-    \quad
-    \begin{tabular}[b]{|c|cccc|} \hline
-        \(y\) & 1 & 2 & 3 & 4 \\\hline
-        \(f_Y(y)\) & 0.19 & 0.32 & 0.31 & 0.18 \\
-        \(f_{Y|X}(y|1)\) & 10/19 & 5/19 & 2/19 & 2/19 \\\hline
-    \end{tabular}
-    \caption{Information for question 2.}
-    \label{q02-tab}
-\end{table}
-
 %' ============================================================================================================================================================
 \section{Question 3} \noindent
 We are considering points \((x,y)\) uniformly selected within an ellipse given by the equation
@@ -143,6 +116,34 @@ To find the marginal density of \(X\) (\(Y\)), we integrate over all possible va
 These results make sense intuitively. For \(f_X(x)\), we can see that the highest probability is obtained when \(x = 0\). At \(x=0\), the 
 height of the ellipse is the greatest, so there is more ``width'' for \(x = 0\) to be chosen. And as \(x \to \pm a\), \(f_X(x) \to 0\), meaning that the closer
 you get to the end of the ellipse, the less likely that point is to be chosen. 
+
+% put table here? for now
+\begin{table}
+    \centering
+    \def\arraystretch{1.25}
+    % \begin{tabular}[ht]{|c|cccc|} \hline
+    %     \(_X\backslash^Y\) & 1 & 2 & 3 & 4 \\\hline
+    %     1 & 0.10 & 0.05 & 0.02 & 0.02 \\
+    %     2 & 0.05 & 0.20 & 0.05 & 0.02 \\
+    %     3 & 0.02 & 0.05 & 0.20 & 0.04 \\
+    %     4 & 0.02 & 0.02 & 0.04 & 0.10 \\\hline
+    % \end{tabular}
+    % \vspace{1em}
+
+    \begin{tabular}[b]{|c|cccc|} \hline
+        \(x\) & 1 & 2 & 3 & 4 \\\hline
+        \(f_X(x)\) & 0.19 & 0.32 & 0.31 & 0.18 \\
+        \(f_{X|Y}(x|1)\) & 10/19 & 5/19 & 2/19 & 2/19 \\\hline
+    \end{tabular}
+    \quad
+    \begin{tabular}[b]{|c|cccc|} \hline
+        \(y\) & 1 & 2 & 3 & 4 \\\hline
+        \(f_Y(y)\) & 0.19 & 0.32 & 0.31 & 0.18 \\
+        \(f_{Y|X}(y|1)\) & 10/19 & 5/19 & 2/19 & 2/19 \\\hline
+    \end{tabular}
+    \caption{Information for question 2.}
+    \label{q02-tab}
+\end{table}
 
 %' ============================================================================================================================================================
 \section{Question 4} \noindent
