@@ -314,7 +314,51 @@ for \(0 \le x \le 4\), \(F(x) = 0\) if \(x < 0\), and \(F(x) = 1\) if \(x > 4\).
 %' ============================================================================================================================================================
 \section{Question 10} \noindent
 Let \(X\) and \(Y\) be random variables such that \(0 \le x \le 3\) and \(0 \le y \le 4\). Within this rectangular region, let the joint cdf be 
-\(f(x,y) = xy(x^2+y)/156\). 
+\(F(x,y) = xy(x^2+y)/156\). From this we can also determine the joint cdf outside the region of joint support. To start we know that \(F(x,y) = 0\) if ]
+\(x < 0\) or \(y < 0\). When \(0 \le X \le 3\) and \(y > 4\) (beyond the support of \(Y\)), we have \(F(x,y) = F_X(x)\), and when 
+\(0 \le Y \le 4\) but \(X > 3\) (beyond the support of \(X\)), we have \(F(x,y) = F_Y(y)\); these quantities are given by 
+\begin{align*}
+    F_X(x) &= \lim_{y \to 4} F(x,y) = F(x,4) = \frac{x(x^2+y)}{39}, \\
+    F_Y(y) &= \lim_{x \to 3} F(x,y) = F(3,y) = \frac{y(9 + y)}{52}.
+\end{align*}
+\begin{itemize}
+    \item[(a)] We have 
+    \begin{align*}
+        \mathrm{Pr}&(1 \le X \le 2 \cap 1 \le Y \le 2)
+        = F(2,2) - F(2,1) - F(1,2) + F(1,1) \\
+        &= \frac{2 \cdot 2 (4 + 2)}{156} + \frac{1 \cdot 2 (1 + 2)}{156} + \frac{2 \cdot 1 (4 + 1)}{156} + \frac{1 \cdot 1 (1 + 1)}{156}
+        = \frac{24 - 6 - 10 + 2}{156}
+        = \frac{5}{78}.
+    \end{align*}
+    \item[(b)] We have 
+    \begin{align*}
+        \mathrm{Pr}&(2 \le X \le 4 \cap 2 \le Y \le 4) 
+        = F(4,4) - F(4,2) - F(2,4) + F(2,2) \\
+        &= \frac{4 (9 + 4)}{52} + \frac{2 (9 + 2))}{52} + \frac{2 \cdot 4 (4 + 4)}{156} + \frac{2 \cdot 2 (4 + 2)}{156}
+        = \frac{156 - 66 - 64 + 24}{156}
+        = \frac{25}{78}.
+    \end{align*}
+    \item[(c)] The cdf of \(Y\) is given by \(F_Y(y) = y(9 + y)/52\) for \(0 \le Y \le 4\), \(F_Y(y) = 0\) if \(y < 0\), and \(F_Y(y) = 1\) if \(y > 4\).
+    \item[(d)] The joint pdf of \(X\) and \(Y\) is given by 
+    \begin{align*}
+        f(x,y) = \frac{\partial^2 F(x,y)}{\partial x \partial y} 
+        = \frac{\partial}{\partial x} \frac{\partial}{\partial y} \frac{xy(x^2 + y)}{156} 
+        = \frac{\partial}{\partial x} \frac{x(x^2 + y) + xy}{156}
+        = \frac{3x^2 + 2y}{156}
+    \end{align*}
+    when \(0 \le x \le 3\) and \(0 \le y \le 4\), and \(f(x,y) = 0\) outside of the joint support. 
+    \item[(e)] We have 
+    \begin{align*}
+        \mathrm{Pr}(Y \le X)
+        &= \int_0^3 \int_0^x \frac{3x^2 + 2y}{156} \;\mathrm{d}y \;\mathrm{d}x
+        = \frac{1}{156} \int_0^3 \big[ 3 x^2 y + y^2 \big]_0^x \;\mathrm{d}x 
+        = \frac{1}{156} \int_0^3 \big( 3x^3 + x^2 \big) \;\mathrm{d}x \\
+        &= \frac{1}{156} \left[ \frac{3x^4}{4} + \frac{x^3}{3} \right]_0^3
+        = \frac{1}{156} \left( \frac{3 \cdot 81}{4} + \frac{27}{3} \right)
+        = \frac{243 + 36}{156 \cdot 4} 
+        = \frac{93}{208}.
+    \end{align*}
+\end{itemize}
 
 %' ============================================================================================================================================================
 \section{Appendix A} \noindent
