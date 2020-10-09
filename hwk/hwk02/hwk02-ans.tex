@@ -232,10 +232,12 @@ A derivation of this result can be found in Appendix A.
     \end{align*}
     As a whole, the joint density is given by 
     \begin{align*}
-        f_Y(y) = \begin{cases}
-            (1 + y)\mathrm{e}^{-y} / 8 & \text{when \(y \ge 0\)}, \\
-            (1 - y)\mathrm{e}^{y} / 8  & \text{when \(y < 0\)}. \\
-        \end{cases}
+        f_Y(y) = \begin{dcases}
+            % (1 + y)\mathrm{e}^{-y} / 4 & \text{when \(y \ge 0\)}, \\
+            % (1 - y)\mathrm{e}^{y} / 4  & \text{when \(y < 0\)}. \\
+            \frac{(1 + y)\mathrm{e}^{-y}}{4} & \text{when \(y \ge 0\)}, \\
+            \frac{(1 - y)\mathrm{e}^{y}}{4}  & \text{when \(y < 0\)}. \\
+        \end{dcases}
     \end{align*}
     \item[(d)] The conditional distrubution \(f_{X|Y}(x|y)\) is found by dividing \(f(x,y)\) by \(f_Y(y)\):
     % By doing this, the conditional distrubutions are seen to be 
