@@ -263,7 +263,15 @@ We see that \(g(X) = aX + b\) is monotonic with inverse \(h(Y) = \frac{Y - b}{a}
 
 %' ============================================================================================================================================================
 \section{Question 7} \noindent
-
+Let \(F(x)\) be the cdf of some unspecified discrete random variable,
+% Since e know that \(0 \le F(x) \le 1\). 
+and let \(U \sim \mathrm{Unif}[0,1]\).
+The cdf for \(U\) is given by \(\tilde{F}(u) = u\) for \(0 \le u \le 1\). 
+If we define the random variable \(Y = k\) if \(F(k-1) < U \le F(k)\), then 
+\begin{align*}
+    \mathrm{Pr}(Y \le k) = \mathrm{Pr} \big( U \le F(k) \big) = \tilde{F} \big( F(k) \big) = F(k),
+\end{align*}
+and so the cdf of \(Y\) is actually given by \(F(k)\). 
 
 %' ============================================================================================================================================================
 \section{Question 8} \noindent
@@ -304,7 +312,7 @@ for \(0 \le x \le 4\), \(F(x) = 0\) if \(x < 0\), and \(F(x) = 1\) if \(x > 4\).
 %' ============================================================================================================================================================
 \section{Question 10} \noindent
 Let \(X\) and \(Y\) be random variables such that \(0 \le x \le 3\) and \(0 \le y \le 4\). Within this rectangular region, let the joint cdf be 
-\(f(x,y) = xy(x^2+y)/156\).
+\(f(x,y) = xy(x^2+y)/156\). 
 
 %' ============================================================================================================================================================
 \section{Appendix A} \noindent
