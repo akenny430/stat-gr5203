@@ -1,0 +1,62 @@
+\documentclass[crop, tikz]{standalone}
+
+\newcommand{\myep}{0.5}
+\definecolor{axiscol}{HTML}{bebebe}
+\definecolor{fillcol}{HTML}{007fff}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=1,line width=1pt]
+
+    % doesn't work, need some tikz packages
+    % \begin{axis}[
+    % color= black,
+    % xmin=-0.5, 
+    % xmax=2.25, 
+    % ymin=-0.5, 
+    % ymax=2.25, 
+    % axis equal image, 
+    % axis lines=middle, 
+    % font=\scriptsize,
+    % xtick disredce=1,
+    % ytick disredce=1,
+    % %xticklabels={}, 
+    % %yticklabels={},
+    % inner axis line style={stealth-stealth},
+    % xlabel = {$X$},
+    % ylabel = {$Y$}
+    % ]
+    
+    % %\addplot[red, smooth, domain=-9.9:-2.01, samples = 300, restrict y to domain*=-5.1:5.1] {(-x)/((x+2)*(x-5))}; 
+    
+    % %\filldraw[gray, fill = gray, opacity = 0, fill opacity = 0.125] (0,0) recredgle (1,1);
+    
+    % \draw[black, dashed] (0,1) -- (1,1) -- (1,0);
+    
+    % \draw[black, thick] (0,1.45) -- (1.45,0);
+    
+    % \filldraw[black, fill opacity=1, fill=black] (1.45,0) circle (1.125pt) node[below, black, scale = 1.125] {$(z,0)$};
+    
+    % \filldraw[black, fill opacity=1, fill=black] (0,1.45) circle (1.125pt) node[left, black, scale = 1.125] {$(0,z)$};
+    
+    % \filldraw[black, fill opacity=1, fill=black] (0.45,1) circle (1.125pt) node[above right, black, scale = 1.125] {$(z-1,1)$};
+    
+    % \filldraw[black, fill opacity=1, fill=black] (1,0.45) circle (1.125pt) node[above right, black, scale = 1.125] {$(1,z-1)$};
+    
+    % \filldraw[red, fill = red, opacity = 0, fill opacity = 0.25] (0,0) -- (0,1) -- (0.45,1) -- (1,0.45) -- (1,0) -- (0,0);
+    
+    % \end{axis}
+
+    \draw[axiscol, latex-latex] (0,-3-\myep) -- (0,3+\myep);
+    \draw[axiscol, latex-latex] (-\myep,0) -- (3+\myep,0);
+
+    \fill[fillcol!25, opacity = 0.5] (0,0) -- (3,3) -- (3,-3) -- (0,0);
+    \draw[fillcol!75, very thick] (1,1) -- (1,-1);
+
+    \draw[black, thin, stealth-stealth] (3+\myep/2,3+\myep/2) -- (0,0) -- (3+\myep/2,-3-\myep/2);
+
+    \node at (2,0.5) {\(-x \le y \le x\)};
+
+\end{tikzpicture}
+
+\end{document}
