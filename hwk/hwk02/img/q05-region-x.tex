@@ -3,6 +3,7 @@
 \definecolor{axiscol}{HTML}{bebebe} % light gray
 % \definecolor{fillcol}{HTML}{007fff} % blue
 \definecolor{fillcol}{HTML}{ffbf00} % amber
+\definecolor{arrowcol}{HTML}{cc5500} % orange amber
 
 \begin{document}
 
@@ -14,11 +15,11 @@
     \node[axiscol] at (0,2.75) {\footnotesize\(y\)};
 
     \fill[fillcol!50, opacity = 0.5] (0,0) -- (3,3) -- (3,-3) -- (0,0);
-    \draw[black, very thick, dashed] (1,1) -- (1,-1);
+    \draw[arrowcol, very thick, latex-latex] (1,1) -- (1,-1);
 
-    \draw[fillcol, stealth-stealth] (3,3) -- (0,0) -- (3,-3);
+    \draw[fillcol, latex-latex] (3,3) -- (0,0) -- (3,-3);
 
-    \node at (2,0.5) {\footnotesize\(-x \le y \le x\)};
+    \node[arrowcol] at (2,0.5) {\footnotesize\(-x \le y \le x\)};
 
 \end{tikzpicture}
 
