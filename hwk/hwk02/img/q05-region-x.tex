@@ -9,12 +9,14 @@
 \begin{tikzpicture}[scale=1,line width=1pt]
 
     \draw[axiscol, latex-latex] (0,-2.5) -- (0,2.5);
-    \draw[axiscol, latex-latex] (-0.5,0) -- (3.5,0);
+    \draw[axiscol, latex-latex] (-0.75,0) -- (3.5,0);
+    \node[axiscol] at (3.75,0) {\footnotesize\(x\)};
+    \node[axiscol] at (0,2.75) {\footnotesize\(y\)};
 
     \fill[fillcol!50, opacity = 0.5] (0,0) -- (3,3) -- (3,-3) -- (0,0);
-    \draw[black, ultra thick, dashed] (1,1) -- (1,-1);
+    \draw[black, very thick, dashed] (1,1) -- (1,-1);
 
-    \draw[fillcol, stealth-stealth] (3.25,3.25) -- (0,0) -- (3.25,-3.25);
+    \draw[fillcol, stealth-stealth] (3,3) -- (0,0) -- (3,-3);
 
     \node at (2,0.5) {\footnotesize\(-x \le y \le x\)};
 
