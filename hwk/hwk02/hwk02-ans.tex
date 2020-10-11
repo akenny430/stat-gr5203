@@ -223,7 +223,7 @@ A derivation of this result can be found in Appendix A.
     % When considering all possible \(x \ge 0\) values, we see that we must have \(-x \le y \le x\). 
     The marginal density of \(X\) is given by 
     \begin{align*}
-        f_X(x) = \int_{-x}^x \frac{(x^2 - y^2)\mathrm{e}^{-x}}{8} \;\mathrm{d}x
+        f_X(x) = \int_{-x}^x \frac{(x^2 - y^2)\mathrm{e}^{-x}}{8} \;\mathrm{d}y
         = \frac{\mathrm{e}^{-x}}{8} \left[ x^2y - \frac{y^3}{3} \right]_{-x}^x
         = \frac{e^{-x}}{8} \cdot \frac{4 x^3}{3}
         = \frac{x^3 \mathrm{e}^{-x}}{6}
@@ -297,7 +297,7 @@ Suppose the random variable \(X\) has some density \(f_X(x)\) and let \(Y = aX +
 We see that \(g(X) = aX + b\) is monotonic with inverse \(h(Y) = \frac{Y - b}{a}\) and \(h'(Y) = 1/a\). Then the density of \(Y\) is given by 
 \begin{align*}
     f_Y(y) = f_X \big( h(y) \big) \cdot \big| h'(y) \big|
-    = f_X\left( \frac{y - a}{b} \right) \cdot \frac{1}{|a|} = \frac{y}{|a|}.
+    = f_X\left( \frac{y - b}{a} \right) \cdot \frac{1}{|a|} = \frac{y}{|a|}.
 \end{align*}
 
 %' ============================================================================================================================================================
@@ -427,7 +427,7 @@ Evaluating this integral from \(\theta\) to \(\infty\) gives us
 \end{align*}
 and using L'Hopital's rule \(n\) times on the right limit shows that 
 \begin{align*}
-    \lim_{\phi \to \infty} \mathrm{e}^{-\phi} \sum_{k=0}^n \frac{\phi^k}{k!} = \lim_{\phi \to \infty} (-1)^n \mathrm{e}^{-\theta} = 0.
+    \lim_{\phi \to \infty} \mathrm{e}^{-\phi} \sum_{k=0}^n \frac{\phi^k}{k!} = \lim_{\phi \to \infty} (-1)^n \mathrm{e}^{-\phi} = 0.
 \end{align*}
 which gives us our desired result. \hfill \(\square\)
 
