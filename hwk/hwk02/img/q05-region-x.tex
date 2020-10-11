@@ -1,25 +1,21 @@
 \documentclass[crop, tikz]{standalone}
 
 \definecolor{axiscol}{HTML}{bebebe} % light gray
-% \definecolor{fillcol}{HTML}{007fff} % blue
 \definecolor{fillcol}{HTML}{ffbf00} % amber
 \definecolor{arrowcol}{HTML}{cc5500} % orange amber
 
 \begin{document}
 
-\begin{tikzpicture}[scale=1,line width=1pt]
+\begin{tikzpicture}[font = \footnotesize]
 
-    \draw[axiscol, latex-latex] (0,-2.5) -- (0,2.5);
-    \draw[axiscol, latex-latex] (-0.75,0) -- (3.5,0);
-    \node[axiscol] at (3.75,0) {\footnotesize\(x\)};
-    \node[axiscol] at (0,2.75) {\footnotesize\(y\)};
+    \draw[axiscol, latex-latex] (0,-2.5) -- (0,2.5) node[axiscol] at (0,2.75) {\(y\)};
+    \draw[axiscol, latex-latex] (-0.75,0) -- (3.5,0) node[axiscol] at (3.75,0) {\(x\)};
 
     \fill[fillcol!50, opacity = 0.5] (0,0) -- (3,3) -- (3,-3) -- (0,0);
-    \draw[arrowcol, very thick, latex-latex] (1,1) -- (1,-1);
+    \draw[fillcol, latex-latex, thick] (3,3) -- (0,0) -- (3,-3);
 
-    \draw[fillcol, latex-latex] (3,3) -- (0,0) -- (3,-3);
-
-    \node[arrowcol] at (2,0.5) {\footnotesize\(-x \le y \le x\)};
+    \draw[arrowcol, thick, latex-latex] (1,1) -- (1,-1);
+    \node[arrowcol] at (2,0.5) {\(-x \le y \le x\)};
 
 \end{tikzpicture}
 
