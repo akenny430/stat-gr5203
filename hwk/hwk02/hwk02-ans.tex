@@ -203,7 +203,8 @@ A derivation of this result can be found in Appendix A.
     \end{align*}
     and so \(c = 1/8\). 
     \item[(b)] \(X\) and \(Y\) are not independent since the joint pdf does not have rectangular support. 
-    \item[(c)] When considering all possible \(x \ge 0\) values, we see that we must have \(-x \le y \le x\). 
+    \item[(c)] Figure shows the region of integration for 
+    When considering all possible \(x \ge 0\) values, we see that we must have \(-x \le y \le x\). 
     So the marginal density of \(X\) is given by 
     \begin{align*}
         f_X(x) = \int_{-x}^x \frac{(x^2 - y^2)\mathrm{e}^{-x}}{8} \;\mathrm{d}x
@@ -211,48 +212,66 @@ A derivation of this result can be found in Appendix A.
         = \frac{e^{-x}}{8} \cdot \frac{4 x^3}{3}
         = \frac{x^3 \mathrm{e}^{-x}}{6}
     \end{align*}
-    for \(x \ge 0\). When considering all possible \(-\infty < y < \infty\), we must split the support into two regions: where \(y \ge 0\) and 
-    where \(y < 0\). When \(y \ge 0\), we have \(0 \le y \le x < \infty\), so we have \(y \le x < \infty\). In this region, the marginal density 
-    is given by 
+    for \(x \ge 0\) and \(f_X(x) = 0\) otherwise.
+    % When considering all possible \(-\infty < y < \infty\), we must split the support into two regions: where \(y \ge 0\) and 
+    % where \(y < 0\). When \(y \ge 0\), we have \(0 \le y \le x < \infty\), so we have \(y \le x < \infty\). In this region, the marginal density 
+    % is given by 
+    % \begin{align*}
+    %     f_Y(y) &= \int_y^{\infty} \int_{-x}^{x} \frac{\big( x^2 - y^2 \big) \mathrm{e}^{-x}}{8} \;\mathrm{d}x
+    %     = \frac{1}{8} \left( \int_y^{\infty} x^2 \mathrm{e}^{-x} \;\mathrm{d}x - y^2 \int_y^{\infty} \mathrm{e}^{-x} \;\mathrm{d}x \right) \\
+    %     &= \frac{1}{8} \big( \Omega(y,2) - y^2 \cdot \Omega(y,0) \big)
+    %     = \frac{1}{8} \big( \mathrm{e}^{-y}(2 + 2y + y^2) - y^2\mathrm{e}^{-y} \big)
+    %     = \frac{(1 + y) e^{-y}}{4}.
+    % \end{align*}
+    % In the second region, where \(y < 0\), we have \(0 > y \ge -x > - \infty\), and so we can have \(-y < x < \infty\). 
+    % % By letting \(\tilde{y} = -y\) (and so \(\mathrm{d}\tilde{y} = - \mathrm{d}y\)),
+    % The marginal density is this region is given by 
+    % \begin{align*}
+    %     f_Y(y) &= \int_{-y}^{\infty} \frac{\big( x^2 - y^2 \big) \mathrm{e}^{-x}}{8} \;\mathrm{d}x
+    %     = \frac{1}{8} \left( \int_{-y}^{\infty} x^2 \mathrm{e}^{-x} \;\mathrm{d}x - y^2 \int_y^{\infty} \mathrm{e}^{-x} \;\mathrm{d}x \right) \\
+    %     &= \frac{1}{8} \big( \Omega(-y,2) - y^2 \cdot \Omega(-y,0) \big)
+    %     = \frac{1}{8} \big( \mathrm{e}^{y}(2 - 2y + y^2) - y^2\mathrm{e}^{y} \big)
+    %     = \frac{(1 - y) e^{y}}{4}.
+    % \end{align*}
+    % As a whole, the joint density is given by 
+    % \begin{align*}
+    %     f_Y(y) = \begin{dcases}
+    %         % (1 + y)\mathrm{e}^{-y} / 4 & \text{when \(y \ge 0\)}, \\
+    %         % (1 - y)\mathrm{e}^{y} / 4  & \text{when \(y < 0\)}. \\
+    %         \frac{(1 + y)\mathrm{e}^{-y}}{4} & \text{when \(y \ge 0\)}, \\
+    %         \frac{(1 - y)\mathrm{e}^{y}}{4}  & \text{when \(y < 0\)}. \\
+    %     \end{dcases}
+    % \end{align*}
+    The marginal density of \(Y\) is defined for all values \(-\infty < y < \infty\) whenever \(|y| \le x < \infty\), so 
     \begin{align*}
-        f_Y(y) &= \int_y^{\infty} \int_{-x}^{x} \frac{\big( x^2 - y^2 \big) \mathrm{e}^{-x}}{8} \;\mathrm{d}x
-        = \frac{1}{8} \left( \int_y^{\infty} x^2 \mathrm{e}^{-x} \;\mathrm{d}x - y^2 \int_y^{\infty} \mathrm{e}^{-x} \;\mathrm{d}x \right) \\
-        &= \frac{1}{8} \big( \Omega(y,2) - y^2 \cdot \Omega(y,0) \big)
-        = \frac{1}{8} \big( \mathrm{e}^{-y}(2 + 2y + y^2) - y^2\mathrm{e}^{-y} \big)
-        = \frac{(1 + y) e^{-y}}{4}.
+        f_Y(y) &= \int_{|y|}^{\infty} \frac{\big( x^2 - y^2 \big) \mathrm{e}^{-x}}{8} \;\mathrm{d}x
+        = \frac{1}{8} \left( \int_{|y|}^{\infty} x^2 \mathrm{e}^{-x} \;\mathrm{d}x - y^2 \int_{|y|}^{\infty} \mathrm{e}^{-x} \;\mathrm{d}x \right) \\
+        &= \frac{1}{8} \Big( \Omega(|y|,2) - y^2 \cdot \Omega(|y|,0) \Big)
+        = \frac{1}{8} \Big( 2\mathrm{e}^{-|y|}(1 + |y| + |y|^2/2) - y^2\mathrm{e}^{-|y|} \Big) \\
+        &= \frac{1}{8} \Big( 2\mathrm{e}^{-|y|} + 2|y|\mathrm{e}^{-|y|} + y^2\mathrm{e}^{-|y|} - y^2\mathrm{e}^{-|y|} \Big)
+        = \frac{(1 + |y|) e^{-|y|}}{4}.
     \end{align*}
-    In the second region, where \(y < 0\), we have \(0 > y \ge -x > - \infty\), and so we can have \(-y < x < \infty\). 
-    % By letting \(\tilde{y} = -y\) (and so \(\mathrm{d}\tilde{y} = - \mathrm{d}y\)),
-    The marginal density is this region is given by 
-    \begin{align*}
-        f_Y(y) &= \int_{-y}^{\infty} \frac{\big( x^2 - y^2 \big) \mathrm{e}^{-x}}{8} \;\mathrm{d}x
-        = \frac{1}{8} \left( \int_{-y}^{\infty} x^2 \mathrm{e}^{-x} \;\mathrm{d}x - y^2 \int_y^{\infty} \mathrm{e}^{-x} \;\mathrm{d}x \right) \\
-        &= \frac{1}{8} \big( \Omega(-y,2) - y^2 \cdot \Omega(-y,0) \big)
-        = \frac{1}{8} \big( \mathrm{e}^{y}(2 - 2y + y^2) - y^2\mathrm{e}^{y} \big)
-        = \frac{(1 - y) e^{y}}{4}.
-    \end{align*}
-    As a whole, the joint density is given by 
-    \begin{align*}
-        f_Y(y) = \begin{dcases}
-            % (1 + y)\mathrm{e}^{-y} / 4 & \text{when \(y \ge 0\)}, \\
-            % (1 - y)\mathrm{e}^{y} / 4  & \text{when \(y < 0\)}. \\
-            \frac{(1 + y)\mathrm{e}^{-y}}{4} & \text{when \(y \ge 0\)}, \\
-            \frac{(1 - y)\mathrm{e}^{y}}{4}  & \text{when \(y < 0\)}. \\
-        \end{dcases}
-    \end{align*}
-    \item[(d)] The conditional distrubution \(f_{X|Y}(x|y)\) is found by dividing \(f(x,y)\) by \(f_Y(y)\):
+    \item[(d)] The conditional distrubution for \(X\) given \(Y\) is 
+    % \(f_{X|Y}(x|y)\) is found by dividing \(f(x,y)\) by \(f_Y(y)\), so 
     % By doing this, the conditional distrubutions are seen to be 
     \begin{align*}
-        f_{X|Y}(x|y) = \begin{dcases}
-            % \frac{(x^2 - y^2)\mathrm{e}^{-x}/8}{(1+y)\mathrm{e}^{-y}/4}
-            \frac{(x^2 - y^2)\mathrm{e}^{y-x}}{2(1+y)},    & y \ge 0,~  y \le x < \infty \\
-            \frac{(x^2 - y^2)\mathrm{e}^{-(y+x)}}{2(1-y)}, & y < 0,~    -y < x < \infty
-        \end{dcases}
+        % f_{X|Y}(x|y) = \begin{dcases}
+        %     % \frac{(x^2 - y^2)\mathrm{e}^{-x}/8}{(1+y)\mathrm{e}^{-y}/4}
+        %     \frac{(x^2 - y^2)\mathrm{e}^{y-x}}{2(1+y)},    & y \ge 0,~  y \le x < \infty \\
+        %     \frac{(x^2 - y^2)\mathrm{e}^{-(y+x)}}{2(1-y)}, & y < 0,~    -y < x < \infty
+        % \end{dcases}
+        f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)}
+        = \frac{\frac{1}{8}(x^2 - y^2)\mathrm{e}^{-x}}{\frac{1}{4}(1 + |y|)\mathrm{e}^{-|y|}}
+        = \frac{(x^2 - y^2)\mathrm{e}^{-(x + |y|)}}{2(1+|y|)}
     \end{align*}
-    Similarly, 
+    for \(|y| \le x < \infty\) and \(f_{X|Y}(x|y) = 0\) elsewhere. 
+    Similarly, the conditional distribution for \(Y\) given \(X\) is 
     \begin{align*}
-        f_{Y|X}(y|x) = \frac{3(x^2 - y^2)}{4x^2}, ~ -x \le y \le x.
+        f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)}
+        = \frac{\frac{1}{8}(x^2 - y^2)\mathrm{e}^{-x}}{\frac{1}{6}x^3 \mathrm{e}^{-x}}
+        = \frac{3(x^2 - y^2)}{4x^2}
     \end{align*}
+    for \(-x \le y \le x\) and \(f_{Y|X}(y|x) = 0\) elsewhere. 
 \end{itemize}
 
 %' ============================================================================================================================================================
