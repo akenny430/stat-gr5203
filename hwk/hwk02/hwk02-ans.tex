@@ -31,7 +31,9 @@
 \rhead{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 
-\usepackage{lipsum}
+\definecolor{colabcol}{HTML}{960018}
+\newcommand{\mycolab}[1]{\textcolor{colabcol}{\textsl{Collaborators:}} #1\\}
+\newcommand{\mycolaba}[1]{\textcolor{colabcol}{\textsl{Collaborators:}} #1}
 
 %' ============================================================================================================================================================
 %' ============================================================================================================================================================
@@ -183,6 +185,7 @@ The joint cdf of \(X\) and \(Y\) is given by \(F(x,y) = \big( 1 - \mathrm{e}^{-\
 
 %' ============================================================================================================================================================
 \section{Question 5} \noindent
+\mycolab{Melissa Wu, Mariko Sawada}
 Let \(X\) and \(Y\) have a joint pdf \(f(x,y) = c(x^2 - y^2)\mathrm{e}^{-x}\) for \(x \le 0\) and \(-x \le y \le x\).
 To help with some of the integrations, we make use of the following result:
 \begin{align*}
