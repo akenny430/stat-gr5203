@@ -206,7 +206,8 @@ A derivation of this result can be found in Appendix A.
     \end{align*}
     and so \(c = 1/8\). 
     \item[(b)] \(X\) and \(Y\) are not independent since the joint pdf does not have rectangular support. 
-    \item[(c)] 
+    \item[(c)] The support for \(X\) and \(Y\) can be viewed two ways: all points such that \(x \ge 0\) and \(-x \le y \le x\),
+    and all points such that \(y \in \mathbb{R}\) and \(|y| \le x < \infty\). 
     % Figure shows the region of integration for 
     % \begin{figure}
     %     \centering
@@ -214,8 +215,8 @@ A derivation of this result can be found in Appendix A.
     %     \quad
     %     \includestandalone[width = 0.3\textwidth]{img/q05-region-y}
     % \end{figure}
-    When considering all possible \(x \ge 0\) values, we see that we must have \(-x \le y \le x\). 
-    So the marginal density of \(X\) is given by 
+    % When considering all possible \(x \ge 0\) values, we see that we must have \(-x \le y \le x\). 
+    The marginal density of \(X\) is given by 
     \begin{align*}
         f_X(x) = \int_{-x}^x \frac{(x^2 - y^2)\mathrm{e}^{-x}}{8} \;\mathrm{d}x
         = \frac{\mathrm{e}^{-x}}{8} \left[ x^2y - \frac{y^3}{3} \right]_{-x}^x
@@ -252,15 +253,16 @@ A derivation of this result can be found in Appendix A.
     %         \frac{(1 - y)\mathrm{e}^{y}}{4}  & \text{when \(y < 0\)}. \\
     %     \end{dcases}
     % \end{align*}
-    The marginal density of \(Y\) is defined for all values \(-\infty < y < \infty\) whenever \(|y| \le x < \infty\), so 
+    The marginal density of \(Y\) is given by 
     \begin{align*}
         f_Y(y) &= \int_{|y|}^{\infty} \frac{\big( x^2 - y^2 \big) \mathrm{e}^{-x}}{8} \;\mathrm{d}x
         = \frac{1}{8} \left( \int_{|y|}^{\infty} x^2 \mathrm{e}^{-x} \;\mathrm{d}x - y^2 \int_{|y|}^{\infty} \mathrm{e}^{-x} \;\mathrm{d}x \right) \\
         &= \frac{1}{8} \Big( \Omega(|y|,2) - y^2 \cdot \Omega(|y|,0) \Big)
         = \frac{1}{8} \Big( 2\mathrm{e}^{-|y|}(1 + |y| + |y|^2/2) - y^2\mathrm{e}^{-|y|} \Big) \\
         &= \frac{1}{8} \Big( 2\mathrm{e}^{-|y|} + 2|y|\mathrm{e}^{-|y|} + y^2\mathrm{e}^{-|y|} - y^2\mathrm{e}^{-|y|} \Big)
-        = \frac{(1 + |y|) e^{-|y|}}{4}.
+        = \frac{(1 + |y|) e^{-|y|}}{4}
     \end{align*}
+    for all \(y \in \mathbb{R}\).
     \item[(d)] The conditional distrubution for \(X\) given \(Y\) is 
     % \(f_{X|Y}(x|y)\) is found by dividing \(f(x,y)\) by \(f_Y(y)\), so 
     % By doing this, the conditional distrubutions are seen to be 
