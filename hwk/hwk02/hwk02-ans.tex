@@ -57,7 +57,7 @@ Let \(X\) have a pdf of \(f(x) = c x^2\) for \(0 \le x \le 1\) and \(f(x) = 0\) 
 \begin{itemize}
     \item[(a)] For this to be a valid pdf, it must integrate to \(1\) over the support. So 
     \begin{align*}
-        \int_0^1 c x^2 \;\mathrm{d}x = \left. \frac{c x^3}{3} \right|_0^1 = \frac{c}{3} ~\overset{\text{set}}{=}~ 1,
+        1 = \int_0^1 c x^2 \;\mathrm{d}x = \left. \frac{c x^3}{3} \right|_0^1 = \frac{c}{3},
     \end{align*}
     which leads to \(c = 3\). So \(f(x) = 3x^2\) for \(0 \le x \le 1\). 
     \item[(b)] The cdf is given by 
@@ -78,7 +78,7 @@ Let \(X\) have a pdf of \(f(x) = c x^2\) for \(0 \le x \le 1\) and \(f(x) = 0\) 
 Two discrete random variables \(X\) and \(Y\) are jointly distributed. 
 \begin{itemize}
     \item[(a)] The marginal pmf for \(X\) is obtained by summing over every value of \(Y\) for each value of \(X\).
-    For example, to find the marginal probability that \(X=1\), we have \(f_X(x) = 0.10 + 0.05 + 0.02 + 0.02 = 0.19\). 
+    For example, to find the marginal probability that \(X=1\), we have \(f_X(1) = 0.10 + 0.05 + 0.02 + 0.02 = 0.19\). 
     The other values are obtained in the same way. Finding the marginal pmf for \(Y\) is done the exact same way, and 
     it turns out that \(f_X(j) = f_Y(j)\) for \(j = \{1,2,3,4\}\); they are both found in Table \ref{q02-tab}.
     \item[(b)] \(X\) and \(Y\) are not independent. For two random variables to be independent, we need \(f(x,y) = f_X(x)\cdot f_Y(y)\)
@@ -110,10 +110,10 @@ which implies that \(c = 1 / \pi a b\). The last equality is from the fact that 
 To find the marginal density of \(X\) (\(Y\)), we integrate over all possible values of \(Y\) (\(X\)):
 \begin{align*}
     f_X(x) &= \int_{-b\sqrt{1 - (x/a)^2}}^{b\sqrt{1 - (x/a)^2}} \frac{1}{\pi a b} \;\mathrm{d}y
-    = \frac{y}{\pi ab} \Big|_{-b\sqrt{1 - (x/a)^2}}^{b\sqrt{1 - (x/a)^2}} = \frac{2 \sqrt{1 - (x/a)^2}}{\pi a}
+    = \frac{y}{\pi ab} \bigg|_{-b\sqrt{1 - (x/a)^2}}^{b\sqrt{1 - (x/a)^2}} = \frac{2 \sqrt{1 - (x/a)^2}}{\pi a}
     ~~\text{for \(-a \le x \le a\)}, \\
     f_Y(y) &= \int_{-a\sqrt{1 - (y/b)^2}}^{a\sqrt{1 - (y/b)^2}} \frac{1}{\pi a b} \;\mathrm{d}x
-    = \frac{x}{\pi ab} \Big|_{-a\sqrt{1 - (y/b)^2}}^{a\sqrt{1 - (y/b)^2}} = \frac{2 \sqrt{1 - (y/b)^2}}{\pi b}
+    = \frac{x}{\pi ab} \bigg|_{-a\sqrt{1 - (y/b)^2}}^{a\sqrt{1 - (y/b)^2}} = \frac{2 \sqrt{1 - (y/b)^2}}{\pi b}
     ~~\text{for \(-b \le y \le b\)}.
 \end{align*}
 These results make sense intuitively. For \(f_X(x)\), we can see that the highest probability is obtained when \(x = 0\). At \(x=0\), the 
@@ -166,12 +166,14 @@ The joint cdf of \(X\) and \(Y\) is given by \(F(x,y) = \big( 1 - \mathrm{e}^{-\
     \begin{align*}
         f_X(x) 
         % &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \beta \mathrm{e}^{-\alpha x - \beta y} \;\mathrm{d}y
-        &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y} \;\mathrm{d}y
+        % &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y} \;\mathrm{d}y
+        &= \int_{0}^{\infty} \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y} \;\mathrm{d}y
         = \alpha \mathrm{e}^{-\alpha x} \cdot \lim_{\phi \to \infty} \left[- \mathrm{e}^{-\beta y} \right]_0^{\phi}
         = \alpha \mathrm{e}^{-\alpha x}, \\
         f_Y(y) 
         % &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \beta \mathrm{e}^{-\alpha x - \beta y} \;\mathrm{d}x
-        &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y} \;\mathrm{d}x
+        % &= \lim_{\phi \to \infty}\int_{0}^{\phi} \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y} \;\mathrm{d}x
+        &= \int_{0}^{\infty} \alpha \mathrm{e}^{-\alpha x} \cdot \beta \mathrm{e}^{-\beta y} \;\mathrm{d}x
         = \beta \mathrm{e}^{-\beta y} \cdot \lim_{\phi \to \infty} \left[- \mathrm{e}^{-\alpha x} \right]_0^{\phi}
         = \beta \mathrm{e}^{-\beta y}.
     \end{align*}
@@ -182,7 +184,7 @@ The joint cdf of \(X\) and \(Y\) is given by \(F(x,y) = \big( 1 - \mathrm{e}^{-\
 %' ============================================================================================================================================================
 \section{Question 5} \noindent
 Let \(X\) and \(Y\) have a joint pdf \(f(x,y) = c(x^2 - y^2)\mathrm{e}^{-x}\) for \(x \le 0\) and \(-x \le y \le x\).
-To help with some of the integrations, this question makes use of the following result:
+To help with some of the integrations, we make use of the following result:
 \begin{align*}
     \Omega(\theta, n) \coloneqq \int_{\theta}^{\infty} x^n \mathrm{e}^{-x} \;\mathrm{d}x = n! \cdot \mathrm{e}^{-\theta} \sum_{k=0}^{n} \frac{\theta^k}{k!}
 \end{align*}
@@ -281,14 +283,14 @@ A derivation of this result can be found in Appendix A.
     \begin{align*}
         f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)}
         = \frac{\frac{1}{8}(x^2 - y^2)\mathrm{e}^{-x}}{\frac{1}{6}x^3 \mathrm{e}^{-x}}
-        = \frac{3(x^2 - y^2)}{4x^2}
+        = \frac{3(x^2 - y^2)}{4x^3}
     \end{align*}
     for \(-x \le y \le x\) and \(f_{Y|X}(y|x) = 0\) elsewhere. 
 \end{itemize}
 
 %' ============================================================================================================================================================
 \section{Question 6} \noindent
-Suppose the rv \(X\) has some density \(f_X(x)\) and let \(Y = aX + b\) for some \(a \neq 0\), meaning \(Y\) is a linear combination of \(X\). 
+Suppose the random variable \(X\) has some density \(f_X(x)\) and let \(Y = aX + b\) for some \(a \neq 0\), meaning \(Y\) is a linear combination of \(X\). 
 We see that \(g(X) = aX + b\) is monotonic with inverse \(h(Y) = \frac{Y - b}{a}\) and \(h'(Y) = 1/a\). Then the density of \(Y\) is given by 
 \begin{align*}
     f_Y(y) = f_X \big( h(y) \big) \cdot \big| h'(y) \big|
@@ -346,7 +348,7 @@ for \(0 \le x \le 4\), \(F(x) = 0\) if \(x < 0\), and \(F(x) = 1\) if \(x > 4\).
 %' ============================================================================================================================================================
 \section{Question 10} \noindent
 Let \(X\) and \(Y\) be random variables such that \(0 \le x \le 3\) and \(0 \le y \le 4\). Within this rectangular region, let the joint cdf be 
-\(F(x,y) = xy(x^2+y)/156\). From this we can also determine the joint cdf outside the region of joint support. To start we know that \(F(x,y) = 0\) if ]
+\(F(x,y) = xy(x^2+y)/156\). From this we can also determine the joint cdf outside the region of joint support. To start we know that \(F(x,y) = 0\) if
 \(x < 0\) or \(y < 0\). When \(0 \le X \le 3\) and \(y > 4\) (beyond the support of \(Y\)), we have \(F(x,y) = F_X(x)\), and when 
 \(0 \le Y \le 4\) but \(X > 3\) (beyond the support of \(X\)), we have \(F(x,y) = F_Y(y)\); these quantities are given by 
 \begin{align*}
