@@ -11,3 +11,5 @@
 *.toc
 *.fdb_latexmk
 *.synctex.gz
+*.nav
+*.snm
