@@ -316,7 +316,7 @@
     \begin{itemize}
         \item \(\mathrm{E}[X] = 1/p\)
         \item \(\mathrm{Var}[X] = (1 - p)/p^2\)
-        \item \(\mathrm{M}_X(t) = p \mathrm{e}^t / \Big( 1 - (1 - p)\mathrm{e}^t \Big)\)
+        \item \(\mathrm{M}_X(t) = p \mathrm{e}^t / \big( 1 - (1 - p)\mathrm{e}^t \big)\)
     \end{itemize}
 
 \end{frame}
@@ -326,14 +326,31 @@
 
     A random variable \(X\) has a \emph{binomial distribution} with pmf and cdf 
     \begin{align*}
-        f(x;n,p) = \begin{dcases}
+        f(x;n,p) &= \begin{cases}
             % \binom{n}{x} p^x (1 - p)^{n - x} & x \in \{ 0, n \} \\
             \begin{pmatrix}
                 n \\ x
             \end{pmatrix} p^x (1 - p)^{n - x} & x \in \{ 0, n \} \\
-            0 & \text{elsewhere}
-        \end{dcases}
+                \hfil 0 & \text{elsewhere}
+        \end{cases} \\[1em]
+        F(x;n,p) &=  \begin{cases}
+            \hfil 0 & x < 0 \\
+            \displaystyle \sum_{k=0}^x f(x) & x \in \{0, n\} \\
+            \hfil 1 & x > n
+        \end{cases}
     \end{align*}
+    where \(p \in [0,1]\) is the \emph{probability of success} and \(n \in \mathbb{N}\) is the \emph{number of trials.}
+    \begin{itemize}
+        \item \(X\) represents the number of successed oberved after \(n\) trials are conducted. 
+    \end{itemize}
+
+    \vspace{2em}
+    We say \(X \sim \mathrm{Bin}(n,p)\), and we have:
+    \begin{itemize}
+        \item \(\mathrm{E}[X] = np\)
+        \item \(\mathrm{Var}[X] = np(1 - p)\)
+        \item \(\mathrm{M}_X(t) = \big( p(\mathrm{e}^t - 1) + 1 \big)^n\)
+    \end{itemize}
 
 \end{frame}
 
