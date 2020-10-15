@@ -317,4 +317,20 @@
 
 \end{frame}
 
+%' ============================================================================================================================================================
+\begin{frame}{Binomial Distribution}
+
+    A random variable \(X\) has a \emph{binomial distribution} with pmf and cdf 
+    \begin{align*}
+        f(x;n,p) = \begin{dcases}
+            % \binom{n}{x} p^x (1 - p)^{n - x} & x \in \{ 0, n \} \\
+            \begin{pmatrix}
+                n \\ x
+            \end{pmatrix} p^x (1 - p)^{n - x} & x \in \{ 0, n \} \\
+            0 & \text{elsewhere}
+        \end{dcases}
+    \end{align*}
+
+\end{frame}
+
 \end{document}
