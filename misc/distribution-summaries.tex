@@ -210,7 +210,8 @@
 
     \emph{Geometric series:} for all \(x \in \mathbb{R}\) and \(|r| < 1\), we have
     \begin{align*}
-        \frac{x}{1 - r} = \sum_{k=0}^{\infty} x r^k = \sum_{k=1}^{\infty} x r^{k-1}.
+        \frac{x(1 - r^{n+1})}{1 - r} &= \sum_{k=0}^{n} x r^k \\%= \sum_{k=1}^{n} x r^{k-1} \\
+        \frac{x}{1 - r} &= \sum_{k=0}^{\infty} x r^k %= \sum_{k=1}^{\infty} x r^{k-1}.
     \end{align*}
 
     % \vspace{2em}
@@ -335,13 +336,13 @@
         \end{cases} \\[1em]
         F(x;n,p) &=  \begin{cases}
             \hfil 0 & x < 0 \\
-            \displaystyle \sum_{k=0}^x f(x) & x \in \{0, n\} \\
+            \displaystyle \sum_{k=0}^x f(k) & x \in \{0, n\} \\
             \hfil 1 & x > n
         \end{cases}
     \end{align*}
     where \(p \in [0,1]\) is the \emph{probability of success} and \(n \in \mathbb{N}\) is the \emph{number of trials.}
     \begin{itemize}
-        \item \(X\) represents the number of successed oberved after \(n\) trials are conducted. 
+        \item \(X\) represents the number of successed oberved after \(n\) Bernoulli trials are conducted. 
     \end{itemize}
 
     \vspace{2em}
@@ -351,6 +352,13 @@
         \item \(\mathrm{Var}[X] = np(1 - p)\)
         \item \(\mathrm{M}_X(t) = \big( p(\mathrm{e}^t - 1) + 1 \big)^n\)
     \end{itemize}
+
+\end{frame}
+
+%' ============================================================================================================================================================
+\begin{frame}{}
+
+    
 
 \end{frame}
 
