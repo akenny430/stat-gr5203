@@ -103,6 +103,7 @@
 \setbeamercolor{itemize subitem}{fg = textcol}
 \setbeamertemplate{enumerate item}[default]{}
 \setbeamercolor{enumerate item}{fg = textcol}
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
 
 % COLORS
 \setbeamercolor{frametitle}{bg = bgcol, fg = textcol}                   % for slide title
@@ -179,9 +180,140 @@
 \end{frame}
 
 %' ============================================================================================================================================================
-\begin{frame}{Overview}
+\begin{frame}{Random variables}
 
-    
+    \begin{itemize}
+        \item Suppose you have an experiment with sample space \(\mathcal{S}\).
+        \item A \emph{random variable} is a function \(X : \mathcal{S} \to \mathbb{R}\).
+        \item Assigns a numerical value to all outcomes of experiment. 
+        % \begin{itemize}
+        %     \item e.g. 
+        % \end{itemize}
+        \vspace{2em}
+        \item The \emph{support} of \(X\) is defined as \(\mathcal{D} = \mathrm{img}(X) \subseteq \mathbb{R}\).
+        \item The support is all possible values that \(X\) can obtain. 
+        \vspace{2em}
+        % \item Let \(\mathcal{C} \subseteq \mathcal{D}\) be an event. 
+        \item A random variable is \emph{discrete} if \(\mathrm{card}(\mathcal{D}) \le \mathrm{card}(\mathbb{N})\).
+        \item When \(\mathrm{card}(\mathcal{D}) < \mathrm{card}(\mathbb{N})\), \(X\) has finitely many values.
+        \item When \(\mathrm{card}(\mathcal{D}) = \mathrm{card}(\mathbb{N})\), \(X\) has countably infinite values. 
+        \vspace{2em}
+        \item A random variable is \emph{continuous} if \(\mathrm{card}(\mathcal{D}) > \mathrm{card}(\mathbb{N})\).
+    \end{itemize}
+
+\end{frame}
+
+\section{Discrete Distributions}
+
+%' ============================================================================================================================================================
+\begin{frame}{Useful summations}
+
+    \emph{Geometric series:} for all \(x \in \mathbb{R}\) and \(|r| < 1\), we have
+    \begin{align*}
+        \frac{x}{1 - r} = \sum_{k=0}^{\infty} x r^k = \sum_{k=1}^{\infty} x r^{k-1}.
+    \end{align*}
+
+    % \vspace{2em}
+    \emph{Binomial series:} for all \(x,y\in\mathbb{R}\) and \(n \in \mathbb{Z}_{\ge0}\), we have 
+    \begin{align*}
+        (x + y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n - k} = \sum_{k=0}^n \binom{n}{k} y^k x^{n - k}.
+    \end{align*}
+
+    % \vspace{2em}
+    \emph{Taylor series:} for all \(x \in \mathbb{R}\), we have
+    \begin{align*}
+        \mathrm{e}^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}.
+    \end{align*}
+
+\end{frame}
+
+%' ============================================================================================================================================================
+\begin{frame}{Probability mass functions}
+
+    % Let \(\mathcal{C} \subseteq \mathcal{D}\) be a set of possible values that \(X\) can obtain. 
+
+    % \vspace{2em}
+    The \emph{probability mass function (pmf)} of a discrete random variable \(X\) with support \(\mathcal{D}\) is a function \(f : \mathcal{D} \to [0,1]\) where 
+    \begin{align*}
+        f(x) = \mathrm{Pr}(X = x).
+    \end{align*}
+    In other words, it assigns a \textsl{probability} to each possible value of \(X\).
+
+    \vspace{2em}
+    If \(\mathcal{C} \subseteq \mathcal{D}\), we have 
+    \begin{align*}
+        \mathrm{Pr}(X \in \mathcal{C}) = \sum_{x \in \mathcal{C}} f(x).
+    \end{align*}
+
+    \vspace{2em}
+    A valid pdf has the following proparties:
+    \begin{itemize}
+        \item \(f(x) \ge 0\) for all \(x \in \mathcal{D}\),
+        \item \(f(x) = 0\) if \(x \not\in \mathcal{D}\),
+        \item \(\sum_{x \in \mathcal{D}} f(x) = 1\).
+    \end{itemize}
+
+\end{frame}
+
+% %' ============================================================================================================================================================
+% \begin{frame}{Uniorm Distribution}
+
+%     A discrete random variable \(X\) has a \emph{uniform distribution} with pdf
+%     \begin{align*}
+%         f(x;a,b) = \frac{1}{b - a + 1}
+%     \end{align*}
+%     for all \(x \in \mathcal{D} = \{a,a+1,\ldots,b-1,b\}\).
+
+%     \vspace{2em}
+%     It has the following properties:
+%     \begin{itemize}
+%         \item \(\displaystyle F(x) = \frac{x - a + 1}{b - a + 1}\) for all \(x \in \mathcal{D}\)
+%         \item \(\displaystyle \mathrm{E}[X] = \frac{a + b}{2}\)
+%         \item \(\displaystyle \mathrm{Var}[X] = \frac{(b-a+1)^2 - 1}{12}\)
+%         \item \(\displaystyle \mathrm{M}_X(t) = \frac{\mathrm{e}^{at} - \mathrm{e}^{(b+1)t}}{(b-a+1)(1 - \mathrm{e}^t)}\)
+%     \end{itemize}
+%     % \begin{align*}
+%     %     &\mathcal{D} = \{a,a+1,\ldots,b-1,b\} \\
+%     %     &f(x;a,b) = \frac{1}{b-a+1} \\
+%     %     &F(x;a,b) = \frac{x - a + 1}{b - a + 1} \\
+%     %     &\mathrm{E}[X] = \frac{a + b}{2} \\
+%     %     &\mathrm{Var}[X] = \frac{(b-a+1)^2 - 1}{12} \\
+%     %     &\mathrm{M}_X(t) = \frac{\mathrm{e}^{at} - \mathrm{e}^{(b+1)t}}{(b-a+1)(1 - \mathrm{e}^t)}
+%     % \end{align*}
+%     % \begin{table}
+%     %     \def\arraystretch{1.25}
+%     %     \centering
+%     %     \begin{tabular}[ht]{cccc} \hline
+%     %         \(F(x)\) & \(\mathrm{E}[X]\) & \(\mathrm{Var}[X]\) & \(\mathrm{M}_X(t)\) \\\hline
+%     %         \(\frac{x - a + 1}{b - a + 1}\) & \(\frac{a+b}{2}\) & \(\frac{(b-a+1)^2 - 1}{12}\) & \(\frac{\mathrm{e}^{at} - \mathrm{e}^{(b+1)t}}{(b-a+1)(1 - \mathrm{e}^t)}\)\\\hline
+%     %     \end{tabular}
+%     % \end{table}
+
+% \end{frame}
+
+%' ============================================================================================================================================================
+\begin{frame}{Geometric Distribution}
+
+    A random variable \(X\) has a \emph{geometric distribution} with pmf and cdf
+    \begin{align*}
+        f(x;p) &= \begin{cases}
+            (1 - p)^x p & x = 1, 2, \ldots \\
+            0 & \text{elsewhere}
+        \end{cases} \\[2em]
+        F(x;p) &= \begin{cases}
+            0 & x < 0 \\
+            1 - (1 - p)^x & x = 1, 2, \ldots
+        \end{cases}
+    \end{align*}
+    where \(p \in [0,1]\) is the \emph{probability of success}.
+
+    \vspace{2em}
+    We say \(X \sim \mathrm{Geo}(p)\), and we have:
+    \begin{itemize}
+        \item \(\mathrm{E}[X] = 1/p\)
+        \item \(\mathrm{Var}[X] = (1 - p)/p^2\)
+        \item \(\mathrm{M}_X(t) = p \mathrm{e}^t / \Big( 1 - (1 - p)\mathrm{e}^t \Big)\)
+    \end{itemize}
 
 \end{frame}
 
