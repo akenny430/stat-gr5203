@@ -297,15 +297,19 @@
     A random variable \(X\) has a \emph{geometric distribution} with pmf and cdf
     \begin{align*}
         f(x;p) &= \begin{cases}
-            (1 - p)^x p & x = 1, 2, \ldots \\
-            0 & \text{elsewhere}
-        \end{cases} \\[2em]
+            (1 - p)^x p & x = \{ 1, \infty ) \\
+            \hfil 0 & \text{elsewhere}
+        \end{cases} \\[1em]
         F(x;p) &= \begin{cases}
-            0 & x < 0 \\
-            1 - (1 - p)^x & x = 1, 2, \ldots
+            \hfil 0 & x < 0 \\
+            1 - (1 - p)^x & x = \{ 1, \infty )
         \end{cases}
     \end{align*}
     where \(p \in [0,1]\) is the \emph{probability of success}.
+    \begin{itemize}
+        \item \(X\) represents the number of Bernoulli trials needed before a success occurs. 
+        \item \(X\) has the \emph{memoryless property}: \(\mathrm{Pr}(X > n \;|\; X > m) = \mathrm{Pr}(X > n - m)\).
+    \end{itemize}
 
     \vspace{2em}
     We say \(X \sim \mathrm{Geo}(p)\), and we have:
