@@ -1,52 +1,39 @@
 \documentclass[10pt]{article}
 
-\usepackage{mathtools, amsfonts, bm}
+\usepackage{mathtools, amssymb, bm}
 \usepackage{microtype}
 \usepackage[utf8]{inputenc}
-\usepackage[top = 1.0in, left = 1.75in, right = 0.75in, bottom = 0.75in]{geometry}
+\usepackage[margin = 0.75in]{geometry}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage{tabularx}
 \usepackage{tikzsymbols}
 \usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
 
-\usepackage[explicit]{titlesec}
-\titleformat{\section}[runin]{\bfseries}{}{0em}{
-    \llap{
-        \smash{
-            \begin{tabularx}{0.85in}{r}
-                #1 
-            \end{tabularx}
-        }
-    }
-}[\leavevmode\hspace*{\dimexpr-\fontdimen2\font-\fontdimen3\font+0.25em}]
 
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{\thepage}
-\renewcommand{\headrulewidth}{0pt}
 
-\usepackage{lipsum}
+% \titleformat{\section}{\normalsize\bfseries}{\thesection}{1em}{}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\setcounter{secnumdepth}{0}
 
-%' ============================================================================================================================================================
-%' ============================================================================================================================================================
+\definecolor{colabcol}{HTML}{960018}
+\newcommand{\mycolab}[1]{\textcolor{colabcol}{\textsl{Collaborators:}} #1 \\ }
+\newcommand{\mycolaba}[1]{\textcolor{colabcol}{\textsl{Collaborators:}} #1}
+
+\title{
+    {\Large Homework 1}
+}
+\author{
+    {\normalsize Aiden Kenny}\\
+    {\normalsize STAT GR5203: Probability}\\
+    {\normalsize Columbia University}
+}
+\date{\normalsize September 29, 2020}
 
 \begin{document}
 
-\newcommand{\mytitle}{Homework 1}
-\newcommand{\myauthor}{Aiden Kenny}
-\newcommand{\myclass}{STAT GR5203: Probability}
-\newcommand{\myschool}{Columbia University}
-\newcommand{\mydate}{September 29, 2020}
-\begin{flushright}
-    \textbf{\mytitle}\\[0.5em]
-    \textsl{\myauthor}\\
-    \textsl{\myclass}\\
-    \textsl{\myschool}\\
-    \textsl{\mydate}
-\end{flushright} \vspace{1em}
+\maketitle
 
 %' ============================================================================================================================================================
 \section{Question 1} \noindent
@@ -120,7 +107,7 @@ also assuming committee choices are independent.
     \item[(c)] There are two possibilities when the event \(G\) occurs: both leaders are male, or both leaders are female. Since these possibilities are 
     disjoint, we have \(G = (G \cap E) \cup (G \cap F)\). Then, using the definition of conditional probability, we have
     \begin{align*}
-        \mathrm{Pr}(G | E \cup F) = \frac{\mathrm{Pr}(G \cap (E \cup F))}{\mathrm{Pr}(E \cup F)} 
+        \mathrm{Pr}(G \,|\, E \cup F) = \frac{\mathrm{Pr}(G \cap (E \cup F))}{\mathrm{Pr}(E \cup F)} 
         = \frac{\mathrm{Pr}\big( (G \cap E) \cup (G \cap F) \big)}{\mathrm{Pr}(E \cup F)} 
         = \frac{\mathrm{Pr}(G)}{\mathrm{Pr}(E \cup F)} = \frac{77}{109}.
     \end{align*}
@@ -171,12 +158,12 @@ events is disjoint.
         &= \mathrm{Pr}(I_1)\mathrm{Pr}(D_2)\mathrm{Pr}(I_3) + \mathrm{Pr}(D_1)\mathrm{Pr}(I_2)\mathrm{Pr}(I_3) + \mathrm{Pr}(I_1)\mathrm{Pr}(I_2)\mathrm{Pr}(D_3) \\
         &= p(1-p)p + (1-p)p^2 + p^2 (1-p) = 3p^2(1-p).
     \end{align*}
-    \item[(c)] %We want to determine \(\mathrm{Pr}(I_1 | F)\). 
+    \item[(c)] %We want to determine \(\mathrm{Pr}(I_1 \,|\, F)\). 
     We observe that of the three possibile scenarios in \(F\), two of them begin with \(I_1\), and so \(\mathrm{Pr}(I_1 \cap F) = 2 p^2 (1-p)\) (to be
     more rigorous, we could show that \(I_1 \cap F = 
     (I_1 \cap D_2 \cap I_3) \cup (I_1 \cap I_2 \cap D_3)\) and then calculate the probability directly). We then have 
     \begin{align*}
-        \mathrm{Pr}(I_1 | F) = \frac{\mathrm{Pr}(I_1 \cap F)}{\mathrm{Pr}(F)} = \frac{2 p^2 (1-p)}{3 p^2 (1-p)} = \frac{2}{3}.
+        \mathrm{Pr}(I_1 \,|\, F) = \frac{\mathrm{Pr}(I_1 \cap F)}{\mathrm{Pr}(F)} = \frac{2 p^2 (1-p)}{3 p^2 (1-p)} = \frac{2}{3}.
     \end{align*}
 \end{itemize}
 
@@ -186,9 +173,9 @@ Let \(C\) be the event that the question is answered correctly, and let \(I\) be
 Both the husband and the wife answer the question correctly with probability \(p\) and incorrectly with probability \(1-p\). 
 \begin{itemize}
     \item[(a)] For the first strategy, let \(H\) be the event that the husband is chosen, and let \(W\) be the event that the wife is 
-    chosen. We have \(\mathrm{Pr}(C | H) = \mathrm{Pr}(C | W) = p\), and since 
+    chosen. We have \(\mathrm{Pr}(C \,|\, H) = \mathrm{Pr}(C \,|\, W) = p\), and since 
     we are randomly choosing either the husband or wife, so \(\mathrm{Pr}(H) = \mathrm{Pr}(W) = 1/2\). By the law of total 
-    probability, we have \(\mathrm{Pr}(C) = \mathrm{Pr}(C | H) \mathrm{Pr}(H) + \mathrm{Pr}(C | W) \mathrm{Pr}(W) = p/2 + p/2 = p\).
+    probability, we have \(\mathrm{Pr}(C) = \mathrm{Pr}(C \,|\, H) \mathrm{Pr}(H) + \mathrm{Pr}(C \,|\, W) \mathrm{Pr}(W) = p/2 + p/2 = p\).
     \item[(b)] For the second strategy, there are three possible ways that they can be correct:
     \begin{enumerate}
         \item Both the husband and wife are correct and agree.
@@ -212,11 +199,11 @@ since the couple cannot agree and disagree at the same time.
 \begin{itemize}
     \item[(a)] We note that \(\mathrm{Pr}(A \cap C) = p^2\) and \(\mathrm{Pr}(A \cap I) = (1-p)^2\). Then using Bayes' theorem, we have 
     \begin{align*}
-        \mathrm{Pr}(C | A) = \frac{\mathrm{Pr}(A \cap C)}{\mathrm{Pr}(A)} = \frac{\mathrm{Pr}(A \cap C)}{\mathrm{Pr}(A \cap C) + \mathrm{Pr}(A \cap I)} 
+        \mathrm{Pr}(C \,|\, A) = \frac{\mathrm{Pr}(A \cap C)}{\mathrm{Pr}(A)} = \frac{\mathrm{Pr}(A \cap C)}{\mathrm{Pr}(A \cap C) + \mathrm{Pr}(A \cap I)} 
         = \frac{p^2}{p^2 + (1-p)^2}.
     \end{align*}
-    When \(p = 0.6\), we have \(\mathrm{Pr}(C | A) = 0.6923077\).
-    \item[(b)] When the couple disagrees, their answer being correct comes down to the coin flip, and so \(\mathrm{Pr}(C | D) = 1/2\). 
+    When \(p = 0.6\), we have \(\mathrm{Pr}(C \,|\, A) = 0.6923077\).
+    \item[(b)] When the couple disagrees, their answer being correct comes down to the coin flip, and so \(\mathrm{Pr}(C \,|\, D) = 1/2\). 
 \end{itemize}
 So, using the second strategy, the couple is more likely to be correct if they agree on the answer. 
 
@@ -237,11 +224,11 @@ both of these results make sense intuitively.
 \section{Question 10} \noindent
 Let \(S_1\) be the event that the first coin is silver, and let \(S_2\) be the event that the second coin is silver. Each of the three cabinets has an equal
 chance of being selected, so \(\mathrm{Pr}(A) = \mathrm{Pr}(B) = \mathrm{Pr}(C) = 1/3\). Since the drawers are opened at random as well, we have 
-\(\mathrm{Pr}(S_1 | A) = 0\), \(\mathrm{Pr}(S_1 | B) = 1\), and \(\mathrm{Pr}(S_1 | C) = 1/2\). We also note that since cabinet \(B\) is the only cabinet to 
+\(\mathrm{Pr}(S_1 \,|\, A) = 0\), \(\mathrm{Pr}(S_1 \,|\, B) = 1\), and \(\mathrm{Pr}(S_1 \,|\, C) = 1/2\). We also note that since cabinet \(B\) is the only cabinet to 
 have two silver coins, we have \(\mathrm{Pr}(S_2 \cap S_1) = \mathrm{Pr}(B) = 1/3\). Using Bayes' theorem, we have 
 \begin{align*}
-    \mathrm{Pr}(S_2 | S_1) &= \frac{\mathrm{Pr}(S_2 \cap S_1)}{\mathrm{Pr(S_1)}} = \frac{\mathrm{Pr}(B)}{\mathrm{Pr}(S_1|A)\mathrm{Pr}(A) +
-    \mathrm{Pr}(S_1|B)\mathrm{Pr}(B) + \mathrm{Pr}(S_1|C)\mathrm{Pr}(C)} \\
+    \mathrm{Pr}(S_2 \,|\, S_1) &= \frac{\mathrm{Pr}(S_2 \cap S_1)}{\mathrm{Pr(S_1)}} = \frac{\mathrm{Pr}(B)}{\mathrm{Pr}(S_1\,|\,A)\mathrm{Pr}(A) +
+    \mathrm{Pr}(S_1\,|\,B)\mathrm{Pr}(B) + \mathrm{Pr}(S_1\,|\,C)\mathrm{Pr}(C)} \\
     &= \frac{1/3}{\left( 1 + 0 + 1/2 \right)/3} = \frac{1}{3/2} = \frac{2}{3}.
 \end{align*}
 
@@ -252,20 +239,20 @@ blue, and green ball is chosen from urn A, respectively, and \(R_{\beta},B_{\bet
 \begin{itemize}
     \item[(a)] Using the law of total probability, we have 
     \begin{align*}
-        \mathrm{Pr}(R_{\beta}) &= \mathrm{Pr}(R_{\beta}|R_{\alpha}) \cdot \mathrm{Pr}(R_{\alpha}) + \mathrm{Pr}(R_{\beta}|B_{\alpha})\cdot\mathrm{Pr}(B_{\alpha})
-        + \mathrm{Pr}(R_{\beta}|G_{\alpha})\cdot\mathrm{Pr}(G_{\alpha}) \\
+        \mathrm{Pr}(R_{\beta}) &= \mathrm{Pr}(R_{\beta}\,|\,R_{\alpha}) \cdot \mathrm{Pr}(R_{\alpha}) + \mathrm{Pr}(R_{\beta}\,|\,B_{\alpha})\cdot\mathrm{Pr}(B_{\alpha})
+        + \mathrm{Pr}(R_{\beta}\,|\,G_{\alpha})\cdot\mathrm{Pr}(G_{\alpha}) \\
         &= \frac{3}{10}\cdot\frac{4}{9} + \frac{2}{10}\cdot\frac{3}{9} + \frac{2}{10}\cdot\frac{2}{9} = \frac{11}{45}.
     \end{align*}
-    \item[(b)] By the definition of conditional probability, we have \(\mathrm{Pr}(R_{\alpha}|R_{\beta}) = \mathrm{Pr}(R_{\alpha}\cap R_{\beta}) / 
+    \item[(b)] By the definition of conditional probability, we have \(\mathrm{Pr}(R_{\alpha}\,|\,R_{\beta}) = \mathrm{Pr}(R_{\alpha}\cap R_{\beta}) / 
     \mathrm{Pr}(R_{\beta})\). It is easy to see that \(\mathrm{Pr}(R_{\alpha}\cap R_{\beta}) = 3/10 \cdot 4/9 = 6/45\), and so 
-    \(\mathrm{Pr}(R_{\alpha}|R_{\beta}) = \frac{6/45}{11/45} = 6/11\).
+    \(\mathrm{Pr}(R_{\alpha}\,|\,R_{\beta}) = \frac{6/45}{11/45} = 6/11\).
 \end{itemize}
 
 %' ============================================================================================================================================================
 \section{Question 12} \noindent
-Let \(M\) be the number on the first dice, and let \(N\) be the number on the second dice. We want to determine \(\mathrm{Pr}(|M - N| < 3)\).
+Let \(M\) be the number on the first dice, and let \(N\) be the number on the second dice. We want to determine \(\mathrm{Pr}(\,|\,M - N\,|\, < 3)\).
 Using a brute force approach, we can see that there are 24 different combinations whose difference is less than three (e.g. \((3,3), (6,4), (5,4)\)). Since 
-there are 36 possible number combinations, each with an equal chance of occuring, we have \(\mathrm{Pr}(|M - N| < 3) = 24/36 = 2/3\). 
+there are 36 possible number combinations, each with an equal chance of occuring, we have \(\mathrm{Pr}(\,|\,M - N\,|\, < 3) = 24/36 = 2/3\). 
 
 %' ============================================================================================================================================================
 \section{Question 13} \noindent
