@@ -14,3 +14,8 @@
 *.nav
 *.snm
 .Rproj.user
+
+# exam answers
+quiz01-ans.pdf
+midterm01-ans.pdf
+final-ans.pdf
